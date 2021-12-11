@@ -29,10 +29,11 @@ public class ClassroomService {
         int classroomId = -1;
         if (con != null) {
             try {
-                String query = "insert into classroom (grpcapacity,agegroupId) values (?,?)";
+                String query = "insert into classroom (grpcapacity,agegroupId,sectionName) values (?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 stmt.setInt(1, cr.getGroupAvailableCapacity());
                 stmt.setInt(2, cr.getAgegroupId());
+                stmt.setString(3,cr.getSectionName());
 
                 stmt.executeUpdate();
 

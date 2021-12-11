@@ -8,6 +8,65 @@ public class AgeGroup {
 	private int maxGroupSize;
 	private int maxGroupsPerRoom;
 	private String ageGroupName;
+        private int ageGroup;
+        private int classroomId;
+        private int maxCapacity;
+        private int remainingCapacity;
+        
+        public AgeGroup(int ageGroupId, int ageGroup, int classroomId, int maxCapacity, int remainingCapacity  ) {
+		try {
+			this.ageGroupId = ageGroupId;
+			this.ageGroup = ageGroup;
+			this.classroomId = classroomId;
+			this.maxCapacity = maxCapacity;
+			this.remainingCapacity = remainingCapacity;
+                        
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+    public int getAgeGroupId() {
+        return ageGroupId;
+    }
+
+    public void setAgeGroupId(int ageGroupId) {
+        this.ageGroupId = ageGroupId;
+    }
+
+    public int getAgeGroup() {
+        return ageGroup;
+    }
+
+    public void setAgeGroup(int ageGroup) {
+        this.ageGroup = ageGroup;
+    }
+
+    public int getClassroomId() {
+        return classroomId;
+    }
+
+    public void setClassroomId(int classroomId) {
+        this.classroomId = classroomId;
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    public int getRemainingCapacity() {
+        return remainingCapacity;
+    }
+
+    public void setRemainingCapacity(int remainingCapacity) {
+        this.remainingCapacity = remainingCapacity;
+    }
+       
 	
 	public AgeGroup(String csvInput) {
 		String[] inputs = csvInput.split(",");
@@ -28,7 +87,7 @@ public class AgeGroup {
 	@Override
 	public String toString() {
 		StringBuilder output = new StringBuilder();
-		output.append(ageGroupName + " : ");
+		output.append(classroomId + " : ");
 		output.append(minLimitInMonths + " to " + maxLimitInMonths + " months old ;");
 		output.append("maxGroupSize: " + maxGroupSize + " members ;");
 		output.append(maxGroupsPerRoom + " groups per room ;");

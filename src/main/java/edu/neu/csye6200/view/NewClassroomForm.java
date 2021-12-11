@@ -175,8 +175,9 @@ public class NewClassroomForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "There was an error. Please try again.");
         
         this.dispose();
-        HomeFrame homeFrame = new HomeFrame();
-        homeFrame.setVisible(true);
+//        HomeFrame homeFrame = new HomeFrame();
+        EditClassroomForm edcrf = new EditClassroomForm( classroomId);
+        edcrf.setVisible(true);
         
     }//GEN-LAST:event_btn_addclassroomActionPerformed
 
