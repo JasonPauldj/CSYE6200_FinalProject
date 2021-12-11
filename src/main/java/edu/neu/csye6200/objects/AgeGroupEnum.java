@@ -49,6 +49,14 @@ public enum AgeGroupEnum {
         return maxGroupSize;
     }
     
+    public int getMinLimitInMonths(){
+        return minLimitInMonths;
+    }
+    
+    public int getMaxLimitInMonths(){
+        return maxLimitInMonths;
+    }
+    
     public static AgeGroupEnum getAgeGroupEnum(int ageGroupId){
         for(AgeGroupEnum ageGroup : AgeGroupEnum.values())
         {

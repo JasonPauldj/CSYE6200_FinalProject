@@ -4,7 +4,7 @@
  */
 package edu.neu.csye6200.view;
 
-import edu.neu.csye6200.objects.AgeGroup;
+import edu.neu.csye6200.objects.Group;
 import edu.neu.csye6200.objects.AgeGroupEnum;
 import edu.neu.csye6200.services.AgeGroupService;
 import java.awt.Component;
@@ -31,7 +31,7 @@ public class EditClassroomForm extends javax.swing.JFrame {
     public EditClassroomForm(int classroomId) {
         initComponents();
         this.classroomId = classroomId;
-       List<AgeGroup> list =  getGroupsForClassRoom(classroomId);
+       List<Group> list =  getGroupsForClassRoom(classroomId);
        if(!list.isEmpty()){
            this.ageGroupId = list.get(0).getAgeGroupId();
        }
@@ -242,7 +242,7 @@ public class EditClassroomForm extends javax.swing.JFrame {
         });
     }
 
-    public void addRowToJTable( List<AgeGroup> list)
+    public void addRowToJTable( List<Group> list)
     {
         DefaultTableModel model = (DefaultTableModel) tbl_grps.getModel();
         //commented by jason
@@ -297,7 +297,7 @@ public class EditClassroomForm extends javax.swing.JFrame {
      * @param classroom
      * @return
      */
-    public List<AgeGroup> getGroupsForClassRoom(int classroom){
+    public List<Group> getGroupsForClassRoom(int classroom){
         
         AgeGroupService ags = new AgeGroupService();
         return ags.getGroupListForClassRoom(classroom);
