@@ -4,7 +4,10 @@
  */
 package edu.neu.csye6200.view;
 
+import edu.neu.csye6200.services.StudentService;
 import javax.swing.SwingUtilities;
+import java.util.*;
+import edu.neu.csye6200.objects.*;
 
 /**
  *
@@ -235,11 +238,15 @@ public class HomeFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new HomeFrame().setVisible(true);
-            }
-        });
+//        SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                new HomeFrame().setVisible(true);
+//            }
+//        });
+        List<Student> studentList = StudentService.fetchStudentData();
+        for(Student s : studentList){
+            System.out.println(s);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

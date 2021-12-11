@@ -16,6 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -58,58 +60,53 @@ public class StudentService {
         
     }
     
-    public static ResultSet fetchStudentData(){
+    public static List<Student> fetchStudentData(){
+        //to fetch all student data
         Connection con = DBConnection.getConnection();
+        List<Student> studentList = new ArrayList<>();
         if(con!=null){
-            try {
-                
+            
                 String query = "SELECT * FROM daycaredb.Student;";
                 ResultSet rs = FetchData.SelectQuery(con, query);
+                studentList = arrangeStudentData(rs);
                 
-                ResultSetMetaData rsmd = rs.getMetaData();
+//                ResultSetMetaData rsmd = rs.getMetaData();
                 
-                int cols = rsmd.getColumnCount();
-                  while(rs.next()){
-//                      System.out.println(rs.getString("firstname"));
-                        for(int i = 1; i<=cols ; i++){
-                            System.out.print(rs.getString(i) + " ");
-                        }
-                        System.out.println();
-                  }
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
-                return null;
-            }
+            
         }
-        return null;
+        return studentList;
     }
-    public static ResultSet fetchStudentData(AgeGroupEnum ageGroup){
+    public static List<Student> fetchStudentData(AgeGroupEnum ageGroup){
+        //to fetch students of a particular age group based on the passed AgeGroupEnum
         Connection con = DBConnection.getConnection();
+        List<Student> studentList = new ArrayList<>();
         if(con!=null){
-            try {
                 int minAge = ageGroup.getMinLimitInMonths();
                 int maxAge = ageGroup.getMaxLimitInMonths();
                 
                 String query = "SELECT * FROM daycaredb.Student where age between "+minAge+" and "+maxAge+";";
                 ResultSet rs = FetchData.SelectQuery(con, query);
                 
-                ResultSetMetaData rsmd = rs.getMetaData();
-                
-                int cols = rsmd.getColumnCount();
-                  while(rs.next()){
-//                      System.out.println(rs.getString("firstname"));
-                        for(int i = 1; i<=cols ; i++){
-                            System.out.print(rs.getString(i) + " ");
-                        }
-                        System.out.println();
-                  }
-                
-            } catch (SQLException ex) {
+                  studentList = arrangeStudentData(rs);
+            
+        }
+        return studentList;
+    }
+    
+    public static List<Student> arrangeStudentData(ResultSet rs){
+        List<Student> studentList = new ArrayList<>();
+        try{
+//            ResultSetMetaData rsmd = rs.getMetaData();
+            while(rs.next()){
+                Student s = new Student(rs.getInt("studentId"),rs.getInt("age"),rs.getInt("caretakerId"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("gender"));
+                studentList.add(s);
+            }
+            
+            
+        }catch (SQLException ex) {
                 Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
-        }
-        return null;
+        return studentList;
     }
 }

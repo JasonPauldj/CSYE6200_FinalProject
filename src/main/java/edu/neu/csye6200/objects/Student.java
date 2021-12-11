@@ -27,6 +27,10 @@ public class Student extends Person {
         this.age = age;
         this.caretakerID = caretakerID;
     }
+      @Override
+      public String toString(){
+          return  "student: "+studentID+ age+ caretakerID+ getFirstName()+ getLastName()+ getGender();
+      }
 
     public int getCaretakerID() {
         return caretakerID;
