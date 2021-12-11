@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -52,6 +54,58 @@ public class TeacherService {
         }
         
         return -1;
+        
+    }
+     
+     public static List<Teacher> getUnassignedTeachers(){
+        Connection con = DBConnection.getConnection();
+        
+        if(con!=null){
+            try {
+                
+                String query = "Select * from Teacher where agegroupId is null";
+                PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+//                stmt.setString(1,t.getFirstNamxe());
+               
+                
+                ResultSet rs = stmt.executeQuery();  
+                List<Teacher> list = new ArrayList<Teacher>();
+//                stmt.getGeneratedKeys();
+                while(rs.next()){
+                   Teacher t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender")); 
+                   t.setTeacherID(rs.getInt(1));
+                   list.add(t);
+                }
+                stmt.close();
+                return list;
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
+                return new ArrayList<Teacher>();
+            }
+        }
+        return new ArrayList<Teacher>();
+        
+    }
+     
+     public static void updateGroupTeachers(int agegroupNumber, int teacherId){
+        Connection con = DBConnection.getConnection();
+        
+        if(con!=null){
+            try {
+                
+                String query = "Update Teacher SET agegroupId = ? Where teacherId = ?";
+                PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                stmt.setInt(1,agegroupNumber);
+                stmt.setInt(2,teacherId);
+                
+               stmt.executeUpdate();  
+               
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
     }
 }

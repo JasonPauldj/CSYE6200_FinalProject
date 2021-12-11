@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="btnGrp_gender">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="btnGrp_parGender">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -418,7 +420,7 @@
         <Component class="javax.swing.JRadioButton" name="radBtn_parmale">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="btnGrp_gender"/>
+              <ComponentRef name="btnGrp_parGender"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Male"/>
           </Properties>
@@ -429,7 +431,7 @@
         <Component class="javax.swing.JRadioButton" name="radBtn_parfemale">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-              <ComponentRef name="btnGrp_gender"/>
+              <ComponentRef name="btnGrp_parGender"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Female"/>
           </Properties>

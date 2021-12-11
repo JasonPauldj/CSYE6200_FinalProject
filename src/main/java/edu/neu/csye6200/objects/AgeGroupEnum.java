@@ -48,6 +48,15 @@ public enum AgeGroupEnum {
     public int getMaxGroupSize() {
         return maxGroupSize;
     }
+    
+    public static AgeGroupEnum getAgeGroupEnum(int ageGroupId){
+        for(AgeGroupEnum ageGroup : AgeGroupEnum.values())
+        {
+            if(ageGroup.getAgeGroupId()==ageGroupId)
+                return ageGroup;
+        }
+        return null;
+    }
       
         
 }

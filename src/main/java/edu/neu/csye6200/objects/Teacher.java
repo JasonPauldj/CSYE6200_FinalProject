@@ -3,6 +3,7 @@ package edu.neu.csye6200.objects;
 public class Teacher extends Person{
     
     private int agegroupId;
+    private int teacherID;
 
     public Teacher(String firstName, String lastName, String gender) {
         super(firstName, lastName, gender);
@@ -17,6 +18,12 @@ public class Teacher extends Person{
         return agegroupId;
     }
     
-   
+    public int getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(int teacherID) {
+        this.teacherID = teacherID;
+    }
 
 }

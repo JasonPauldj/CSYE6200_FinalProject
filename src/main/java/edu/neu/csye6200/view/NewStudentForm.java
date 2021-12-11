@@ -35,6 +35,7 @@ public class NewStudentForm extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGrp_gender = new javax.swing.ButtonGroup();
+        btnGrp_parGender = new javax.swing.ButtonGroup();
         panel_Title = new javax.swing.JPanel();
         lbl_Logo = new javax.swing.JLabel();
         lbl_Title = new javax.swing.JLabel();
@@ -246,7 +247,7 @@ public class NewStudentForm extends javax.swing.JFrame {
 
         lbl_gender1.setText("Gender :");
 
-        btnGrp_gender.add(radBtn_parmale);
+        btnGrp_parGender.add(radBtn_parmale);
         radBtn_parmale.setText("Male");
         radBtn_parmale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,7 +255,7 @@ public class NewStudentForm extends javax.swing.JFrame {
             }
         });
 
-        btnGrp_gender.add(radBtn_parfemale);
+        btnGrp_parGender.add(radBtn_parfemale);
         radBtn_parfemale.setText("Female");
 
         lbl_StudentID1.setText("Phone No :");
@@ -493,6 +494,7 @@ public class NewStudentForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGrp_gender;
+    private javax.swing.ButtonGroup btnGrp_parGender;
     private javax.swing.JButton btn_add;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

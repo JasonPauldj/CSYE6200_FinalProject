@@ -36,8 +36,8 @@ public class HomeFrame extends javax.swing.JFrame {
         btn_AddStudent = new javax.swing.JButton();
         btn_addTeacher = new javax.swing.JButton();
         btn_addClassroom = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btn_editclassroom = new javax.swing.JButton();
+        txt_classroomId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,16 +91,16 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Edit Classroom");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_editclassroom.setText("Edit Classroom");
+        btn_editclassroom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_editclassroomActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txt_classroomId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txt_classroomIdActionPerformed(evt);
             }
         });
 
@@ -114,7 +114,7 @@ public class HomeFrame extends javax.swing.JFrame {
                     .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btn_AddStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Immunization, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_classroomId, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -124,7 +124,7 @@ public class HomeFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btn_editclassroom)
                         .addGap(97, 97, 97))))
         );
         panel_HomeBtnsLayout.setVerticalGroup(
@@ -140,8 +140,8 @@ public class HomeFrame extends javax.swing.JFrame {
                     .addComponent(btn_addClassroom))
                 .addGap(11, 11, 11)
                 .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_editclassroom)
+                    .addComponent(txt_classroomId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4))
         );
 
@@ -195,17 +195,17 @@ public class HomeFrame extends javax.swing.JFrame {
         newClassroomForm.pack();
     }//GEN-LAST:event_btn_addClassroomActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_editclassroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editclassroomActionPerformed
         this.dispose();
         // TODO add your handling code here:
-        String str = jTextField1.getText();
+        String str = txt_classroomId.getText();
         EditClassroomForm edf = new EditClassroomForm(Integer.parseInt(str));
         edf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_editclassroomActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txt_classroomIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_classroomIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txt_classroomIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,11 +247,11 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_Immunization;
     private javax.swing.JButton btn_addClassroom;
     private javax.swing.JButton btn_addTeacher;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btn_editclassroom;
     private javax.swing.JLabel lbl_Logo;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JPanel panel_HomeBtns;
     private javax.swing.JPanel panel_Title;
+    private javax.swing.JTextField txt_classroomId;
     // End of variables declaration//GEN-END:variables
 }

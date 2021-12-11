@@ -5,10 +5,17 @@
 package edu.neu.csye6200.view;
 
 import edu.neu.csye6200.objects.AgeGroup;
+import edu.neu.csye6200.objects.AgeGroupEnum;
 import edu.neu.csye6200.services.AgeGroupService;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -19,9 +26,20 @@ public class EditClassroomForm extends javax.swing.JFrame {
     /**
      * Creates new form EditClassroomForm
      */
+    private int classroomId;
+    private int ageGroupId=0;
     public EditClassroomForm(int classroomId) {
         initComponents();
-       List<AgeGroup> list =  getAgeGroupsForClassRoom(classroomId);
+        this.classroomId = classroomId;
+       List<AgeGroup> list =  getGroupsForClassRoom(classroomId);
+       if(!list.isEmpty()){
+           this.ageGroupId = list.get(0).getAgeGroupId();
+       }
+           
+       if(this.ageGroupId!=0 && list.size() > AgeGroupEnum.getAgeGroupEnum(ageGroupId).getAgeGroupId()){
+           btn_createAgeGroup.setEnabled(false);
+       }
+       
        addRowToJTable(list);
     }
     
@@ -30,6 +48,21 @@ public class EditClassroomForm extends javax.swing.JFrame {
 //       List<AgeGroup> list =  getAgeGroupsForClassRoom(classroomId);
 //       addRowToJTable(list);
     }
+    //commented by jason
+    
+//    private class EditButton extends JButton{
+//
+//        public EditButton(String text) {
+//            super(text);
+//        }
+//        
+//        public void moveToEditGroup(){        
+//         EditClassroomForm.this.dispose();
+//         
+//        }
+//        
+//    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,12 +77,12 @@ public class EditClassroomForm extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_grps = new javax.swing.JTable();
         panel_Title = new javax.swing.JPanel();
         lbl_Logo = new javax.swing.JLabel();
         lbl_Title = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_createAgeGroup = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -60,23 +93,23 @@ public class EditClassroomForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_grps.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "Age Group Number ", "Classroom Id", "Max Capacity", "Remaining Capacity"
+                "id", "Age Group Number ", "Classroom Id", "Max Capacity", "Remaining Capacity", "TeacherId", "Edit"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tbl_grps);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,10 +150,10 @@ public class EditClassroomForm extends javax.swing.JFrame {
                 .addComponent(lbl_Title))
         );
 
-        jButton1.setText("Create Age Group");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_createAgeGroup.setText("Create Age Group");
+        btn_createAgeGroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_createAgeGroupActionPerformed(evt);
             }
         });
 
@@ -130,14 +163,14 @@ public class EditClassroomForm extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(210, 210, 210)
-                .addComponent(jButton1)
+                .addComponent(btn_createAgeGroup)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jButton1)
+                .addComponent(btn_createAgeGroup)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -167,9 +200,12 @@ public class EditClassroomForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_createAgeGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAgeGroupActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.dispose();
+        AgeGroupForm agf = new AgeGroupForm(this.classroomId,this.ageGroupId);
+        agf.setVisible(true);
+    }//GEN-LAST:event_btn_createAgeGroupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,40 +244,74 @@ public class EditClassroomForm extends javax.swing.JFrame {
 
     public void addRowToJTable( List<AgeGroup> list)
     {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tbl_grps.getModel();
+        //commented by jason
+        //tbl_grps.getColumn("Edit").setCellRenderer(new JTableButtonRenderer());
+        
 //        = getAgeGroupsForClassRoom();
-        Object rowData[] = new Object[5];
+        Object rowData[] = new Object[6];
         for(int i = 0; i < list.size(); i++)
         {
-            rowData[0] = list.get(i).getAgeGroupId();
-            rowData[1] = list.get(i).getAgeGroup();
+            rowData[0] = list.get(i).getGroupId();
+            rowData[1] = list.get(i).getAgeGroupId();
             rowData[2] = list.get(i).getClassroomId();
             rowData[3] = list.get(i).getMaxCapacity();
             rowData[4] = list.get(i).getRemainingCapacity();
+            rowData[5] = list.get(i).getTeacherId();
+            //commented by jason
+//            EditButton btn = new EditButton("Edit");
+//            btn.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    
+//                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//                }
+//            });   
+            //commented by jason
+//            JButton btn1 = new JButton("Edit");
+//            btn1.addActionListener(new ActionListener() {
+//                @Override
+//                public void actionPerformed(ActionEvent e) {
+//                    EditClassroomForm.this.dispose();
+//                    EditGroupForm egf = new EditGroupForm();
+//                    egf.setVisible(true);
+//                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//                }
+//            });
+           // rowData[6] = btn1;
             model.addRow(rowData);
         }
 //        jTable1.setModel(model);
     }
+    
+    //commented by jason
+//    private static class JTableButtonRenderer implements TableCellRenderer {        
+//        @Override 
+//        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//            JButton button = (JButton)value;
+//            return button;  
+//        }
+//    }
     /**
      *
      * @param classroom
      * @return
      */
-    public List<AgeGroup> getAgeGroupsForClassRoom(int classroom){
+    public List<AgeGroup> getGroupsForClassRoom(int classroom){
         
         AgeGroupService ags = new AgeGroupService();
-        return ags.getAgeListForClassRoom(classroom);
+        return ags.getGroupListForClassRoom(classroom);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_createAgeGroup;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_Logo;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JPanel panel_Title;
+    private javax.swing.JTable tbl_grps;
     // End of variables declaration//GEN-END:variables
 }
