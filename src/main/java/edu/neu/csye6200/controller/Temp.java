@@ -44,8 +44,8 @@ public class Temp {
                     "jdbc:mysql://database-1.cog3jk7pua93.us-east-2.rds.amazonaws.com:3306/daycaredb", "admin",
                     "Namrataisbad");
             ImmunizationService im = new ImmunizationService();
-            Student student = new Student(12,20,"TestFN","TestLN","Male");
-            student.setStudentID(102);
+            //Student student = new Student(12,20,"TestFN","TestLN","Male");
+           // student.setStudentID(102);
             Immunization imz = new Immunization();
             Calendar calendarEnd = Calendar.getInstance();
 
@@ -55,8 +55,8 @@ public class Temp {
             //imz.setDatesOfVaccination(calendarEnd);
             imz.setVaccineName("moderna");
             imz.setFrequency(2);
-           student.setImmunizationList(new ArrayList<Immunization>());
-            student.getImmunizationList().add(imz);
+          // student.setImmunizationList(new ArrayList<Immunization>());
+            //student.getImmunizationList().add(imz);
 //			im.insertImmunizationRecord(student, con);
             System.out.println(im.getImmunizationAlerts(con));
         } catch (ClassNotFoundException | SQLException e) {
