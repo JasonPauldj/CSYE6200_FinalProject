@@ -88,6 +88,36 @@ public class TeacherService {
         
     }
      
+     public static List<Teacher> getTeachers(){
+         //method to get List of all Teachers 
+         Connection con = DBConnection.getConnection();
+         return getTeachers(con);
+     }
+     
+     public static List<Teacher> getTeachers(Connection con){
+         if(con!=null){
+            try {
+                
+                String query = "Select * from Teacher";
+                PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                ResultSet rs = stmt.executeQuery();  
+                List<Teacher> list = new ArrayList<Teacher>();
+                while(rs.next()){
+                   Teacher t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender")); 
+                   t.setTeacherID(rs.getInt(1));
+                   list.add(t);
+                }
+                stmt.close();
+                return list;
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
+                return new ArrayList<Teacher>();
+            }
+        }
+        return new ArrayList<Teacher>();
+     }
+     
      public static void updateGroupTeachers(int agegroupNumber, int teacherId){
         Connection con = DBConnection.getConnection();
         
