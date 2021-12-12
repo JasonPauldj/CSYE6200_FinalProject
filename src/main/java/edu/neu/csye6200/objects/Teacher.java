@@ -14,6 +14,11 @@ public class Teacher extends Person{
         super(firstName, lastName, gender);
         this.agegroupId = agegroupId;
     }
+    
+    @Override
+    public String toString(){
+        return "teacher :"+getFirstName()+getLastName()+getGender()+agegroupId+teacherID;
+    }
 
     
 

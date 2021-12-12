@@ -5,7 +5,7 @@ import java.util.List;
 public class ClassRoom {
 
     private int capacity;
-    private AgeGroup ageGroup;
+    private Group ageGroup;
     private List<Student> studentsList;
     private List<Teacher> teacherList;
     private List<Group> groups;
@@ -27,11 +27,11 @@ public class ClassRoom {
         this.capacity = capacity;
     }
 
-    public AgeGroup getAgeGroup() {
+    public Group getAgeGroup() {
         return ageGroup;
     }
 
-    public void setAgeGroup(AgeGroup ageGroup) {
+    public void setAgeGroup(Group ageGroup) {
         this.ageGroup = ageGroup;
     }
 
