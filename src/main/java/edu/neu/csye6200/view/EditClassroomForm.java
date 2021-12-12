@@ -10,9 +10,12 @@ import edu.neu.csye6200.services.AgeGroupService;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -28,6 +31,9 @@ public class EditClassroomForm extends javax.swing.JFrame {
      */
     private int classroomId;
     private int ageGroupId=0;
+    private int selectedGroupId;
+    
+    
     public EditClassroomForm(int classroomId) {
         initComponents();
         this.classroomId = classroomId;
@@ -110,7 +116,6 @@ public class EditClassroomForm extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        tbl_grps.setEnabled(false);
         jScrollPane2.setViewportView(tbl_grps);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -264,63 +269,97 @@ public class EditClassroomForm extends javax.swing.JFrame {
 
     public void addRowToJTable( List<Group> list)
     {
+        
+        String[] colNames ={"id",
+                                        "Age group number",
+                                        "Classroom Id",
+                                        "Max capacity",
+                                        "Remaining capacity",
+                                        "Teacherid",
+            "Edit"};
+        
+        Object rowData[] = new Object[colNames.length];
+        
+        tbl_grps.setModel(new DefaultTableModel(colNames,0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                if(column==6)
+                return true;
+            return false; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+            }
+        });
+        
         DefaultTableModel model = (DefaultTableModel) tbl_grps.getModel();
+        
+        tbl_grps.addMouseListener(new EditButtonMouseListener(tbl_grps));
         //commented by jason
-        //tbl_grps.getColumn("Edit").setCellRenderer(new JTableButtonRenderer());
+        tbl_grps.getColumn("Edit").setCellRenderer(new JTableButtonRenderer());
+        
         
 //        = getAgeGroupsForClassRoom();
-        Object rowData[] = new Object[6];
+
         for(int i = 0; i < list.size(); i++)
         {
+            Group grp = list.get(i);
             rowData[0] = list.get(i).getGroupId();
             rowData[1] = list.get(i).getAgeGroupId();
             rowData[2] = list.get(i).getClassroomId();
             rowData[3] = list.get(i).getMaxCapacity();
             rowData[4] = list.get(i).getRemainingCapacity();
             rowData[5] = list.get(i).getTeacherId();
-            //commented by jason
-//            EditButton btn = new EditButton("Edit");
-//            btn.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    
-//                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//                }
-//            });   
-            //commented by jason
-//            JButton btn1 = new JButton("Edit");
-//            btn1.addActionListener(new ActionListener() {
-//                @Override
-//                public void actionPerformed(ActionEvent e) {
-//                    EditClassroomForm.this.dispose();
-//                    EditGroupForm egf = new EditGroupForm();
-//                    egf.setVisible(true);
-//                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//                }
-//            });
-           // rowData[6] = btn1;
+
+            JButton btn1 = new JButton("Edit");
+            btn1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    EditClassroomForm.this.dispose();
+                    EditGroupForm egf = new EditGroupForm(grp.getGroupId());
+                    egf.setVisible(true);
+                    // JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btn1), "test button.")
+                }
+            });
+            rowData[6] = btn1;
             model.addRow(rowData);
+            
         }
 //        jTable1.setModel(model);
     }
     
     //commented by jason
-//    private static class JTableButtonRenderer implements TableCellRenderer {        
-//        @Override 
-//        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-//            JButton button = (JButton)value;
-//            return button;  
-//        }
-//    }
+   
+    
+    private class EditButtonMouseListener extends MouseAdapter {
+        private final JTable table;
+
+        public EditButtonMouseListener(JTable table) {
+            this.table = table;
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            int column = table.getColumnModel().getColumnIndexAtX(e.getX()); // get the coloum of the button
+            int row    = e.getY()/table.getRowHeight(); //get the row of the button
+
+
+                    /*Checking the row or column is valid or not*/
+            if (row < table.getRowCount() && row >= 0 && column < table.getColumnCount() && column >= 0) {
+                Object value = table.getValueAt(row, column);
+                if (value instanceof JButton) {
+                    EditClassroomForm.this.selectedGroupId=(Integer)table.getValueAt(row, 0);
+                    /*perform a click event*/
+                    ((JButton)value).doClick();
+                }
+            }
+        }
+    }
+    
+    
     /**
      *
      * @param classroom
      * @return
      */
     public List<Group> getGroupsForClassRoom(int classroom){
-        
-        AgeGroupService ags = new AgeGroupService();
-        return ags.getGroupListForClassRoom(classroom);
+                return AgeGroupService.getGroupListForClassRoom(classroom);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_createAgeGroup;

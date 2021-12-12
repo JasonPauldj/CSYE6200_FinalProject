@@ -99,7 +99,27 @@ public class StudentService {
         }
         return studentList;
     }
-    
+    public static List<Student> fetchStudentDataOfGroup(int groupid){
+       
+        Connection con = DBConnection.getConnection();
+        List<Student> studentList = new ArrayList<>();
+        if(con!=null){
+            try{
+                String query = "SELECT * FROM daycaredb.Student where groupid=? ;";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setInt(1, groupid);
+                
+                ResultSet rs =stmt.executeQuery();
+                
+                studentList = arrangeStudentData(rs);
+                
+            }catch(SQLException e){
+                
+            }
+            
+        }
+        return studentList;
+    }
     public static List<Student> arrangeStudentData(ResultSet rs){
         List<Student> studentList = new ArrayList<>();
         try{
