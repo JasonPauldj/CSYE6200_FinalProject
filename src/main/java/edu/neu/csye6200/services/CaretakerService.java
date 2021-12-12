@@ -6,11 +6,14 @@ package edu.neu.csye6200.services;
 
 import edu.neu.csye6200.controller.DBConnection;
 import edu.neu.csye6200.objects.CareTaker;
+import edu.neu.csye6200.objects.Teacher;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -126,6 +129,31 @@ public class CaretakerService {
         return ct;
     }
     
+    public static List<CareTaker> getCaretakers(){
+        Connection con = DBConnection.getConnection();
+         if(con!=null){
+            try {
+                
+                String query = "Select * from Caretaker";
+                PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                ResultSet rs = stmt.executeQuery();  
+                List<CareTaker> list = new ArrayList<>();
+                while(rs.next()){
+                    //CareTaker(String address, String phone, int careTakerId, String firstName, String lastName, String gender)
+                   CareTaker ct =  new CareTaker(rs.getString(4), rs.getString(5), rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(6));
+                   
+                   list.add(ct);
+                }
+                stmt.close();
+                return list;
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
+                return new ArrayList<CareTaker>();
+            }
+        }
+        return new ArrayList<CareTaker>();
+     }
     
 
 }

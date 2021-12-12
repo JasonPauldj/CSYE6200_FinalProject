@@ -2,10 +2,7 @@ edu/neu/csye6200/objects/Student.class
 edu/neu/csye6200/view/HomeFrame.class
 edu/neu/csye6200/view/NewStudentForm$6.class
 edu/neu/csye6200/view/EditClassroomForm$4.class
-<<<<<<< HEAD
-=======
 edu/neu/csye6200/view/EditClassroomForm$EditButtonMouseListener.class
->>>>>>> 4c50f5a05d4a7657a4074596c75ae03e1c96cd95
 edu/neu/csye6200/view/VaccinationAnniversaryForm.class
 edu/neu/csye6200/view/EditGroupForm.class
 edu/neu/csye6200/view/HomeFrame$6.class
@@ -33,6 +30,7 @@ edu/neu/csye6200/view/NewClassroomForm$3.class
 edu/neu/csye6200/objects/Teacher.class
 edu/neu/csye6200/view/NewStudentForm$5.class
 edu/neu/csye6200/view/NewClassroomForm.class
+edu/neu/csye6200/view/ViewCaretakerForm$1.class
 edu/neu/csye6200/view/EmployedTeacherDisplay.class
 edu/neu/csye6200/services/CaretakerService.class
 edu/neu/csye6200/services/FetchData.class
@@ -75,10 +73,7 @@ edu/neu/csye6200/controller/DBConnection.class
 edu/neu/csye6200/view/HomeFrame$9.class
 edu/neu/csye6200/view/EditClassroomForm$3.class
 edu/neu/csye6200/view/NewTeacherForm$8.class
-<<<<<<< HEAD
-=======
 edu/neu/csye6200/view/EditGroupForm$4.class
->>>>>>> 4c50f5a05d4a7657a4074596c75ae03e1c96cd95
 edu/neu/csye6200/view/NewTeacherForm$2.class
 edu/neu/csye6200/services/TeacherService.class
 edu/neu/csye6200/view/HomeFrame$10.class
@@ -89,3 +84,4 @@ edu/neu/csye6200/view/AgeGroupForm.class
 edu/neu/csye6200/view/NewStudentForm$12.class
 edu/neu/csye6200/view/NewStudentForm$3.class
 edu/neu/csye6200/services/Authenticate.class
+edu/neu/csye6200/view/ViewCaretakerForm.class

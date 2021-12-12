@@ -427,6 +427,16 @@ public class NewStudentForm extends javax.swing.JFrame {
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         // TODO add your handling code here:
         
+        int age = Integer.parseInt(txt_age.getText().trim());
+        
+        int assignedGroupID = AgeGroupService.groupAvailability(age);
+        if(assignedGroupID == -1){
+            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
+            JOptionPane.showMessageDialog(NewStudentForm.this, "We couldn't find any available group for the student.");
+            return;
+        }
+        
+        
         String parfirstName = txt_parFirstName.getText().trim();
         String parlastName = txt_parLastame.getText().trim();
         
@@ -452,7 +462,7 @@ public class NewStudentForm extends javax.swing.JFrame {
         
         String gender="";
         
-        int age = Integer.parseInt(txt_age.getText().trim());
+        
         
         if(radBtn_male.isSelected())
             gender="Male";
@@ -461,11 +471,7 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             gender="Female";
         
-        int assignedGroupID = AgeGroupService.groupAvailability(age);
-        if(assignedGroupID == -1){
-            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
-            return;
-        }
+        
 //        String registrationDate = DateTimeFormatter.ofPattern("yyyy/dd/MM").toString();
 //        System.out.println(registrationDate);
         
