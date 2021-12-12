@@ -99,7 +99,9 @@ public class StudentService {
         try{
 //            ResultSetMetaData rsmd = rs.getMetaData();
             while(rs.next()){
-                Student s = new Student(rs.getInt("studentId"),rs.getInt("age"),rs.getInt("caretakerId"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("gender"),rs.getInt("groupid"));
+                Student s = new Student(rs.getInt("age"),rs.getInt("caretakerId"),rs.getString("firstname"),rs.getString("lastname"),
+                        rs.getString("gender"),rs.getInt("groupid"),rs.getInt("studentId"),rs.getString("address"),
+                        rs.getString("phonenumber"),rs.getString("registrationdate"));
                 studentList.add(s);
             }
             

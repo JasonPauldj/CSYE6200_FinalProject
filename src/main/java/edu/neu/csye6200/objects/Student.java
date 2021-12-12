@@ -24,13 +24,17 @@ public class Student extends Person {
         this.groupID = groupID;
     }
 
-      public Student(int studentID, int age, int caretakerID, String firstName, String lastName, String gender, int groupID) {
-        super(firstName, lastName, gender);
-        this.studentID = studentID;
-        this.age = age;
-        this.caretakerID = caretakerID;
-        this.groupID = groupID;
+      public Student(int age, int caretakerID, String firstName, String lastName, String gender, int groupID, int studentID) {
+          this(age, caretakerID, firstName, lastName, gender, groupID);
+        this.studentID = studentID;  
     }
+      public Student(int age, int caretakerID, String firstName, String lastName, String gender, int groupID, int studentID
+      , String address, String phone, String registrationdate){
+          this(age, caretakerID, firstName, lastName, gender, groupID, studentID);
+          this.address = address;
+          this.phone = phone;
+          this.registrationdate = registrationdate;
+      }
       @Override
       public String toString(){
           return  "student: "+studentID+ age+ caretakerID+ getFirstName()+ getLastName()+ getGender();
