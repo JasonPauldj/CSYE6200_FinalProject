@@ -60,12 +60,12 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel2.setToolTipText("");
 
         lbl_Title.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
-        lbl_Title.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title.setText("NORTHEASTERN");
         lbl_Title.setToolTipText("");
 
         lbl_Title6.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
-        lbl_Title6.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title6.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title6.setText("DAYCARE");
         lbl_Title6.setToolTipText("");
 
@@ -192,28 +192,28 @@ public class HomeFrame extends javax.swing.JFrame {
         });
 
         lbl_Title1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lbl_Title1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title1.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_Title1.setText("Enter classroom Id for editing a classroom");
         lbl_Title1.setToolTipText("");
 
         lbl_Title2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lbl_Title2.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title2.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title2.setText("To add an entity");
         lbl_Title2.setToolTipText("");
 
         lbl_Title3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lbl_Title3.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title3.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title3.setText("Information about Anniversaries");
         lbl_Title3.setToolTipText("");
 
         lbl_Title4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lbl_Title4.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title4.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title4.setText("Show Alert");
         lbl_Title4.setToolTipText("");
 
         lbl_Title5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lbl_Title5.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_Title5.setForeground(new java.awt.Color(51, 51, 51));
         lbl_Title5.setText("Details about Daycare Members");
         lbl_Title5.setToolTipText("");
 
