@@ -105,7 +105,7 @@ public class TeacherService {
                 ResultSet rs = stmt.executeQuery();  
                 List<Teacher> list = new ArrayList<Teacher>();
                 while(rs.next()){
-                   Teacher t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender"), rs.getString("registrationdate")); 
+                   Teacher t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender"), rs.getString("lastreviewdate")); 
                    t.setTeacherID(rs.getInt(1));
                    list.add(t);
                 }

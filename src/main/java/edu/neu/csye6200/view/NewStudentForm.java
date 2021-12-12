@@ -204,13 +204,14 @@ public class NewStudentForm extends javax.swing.JFrame {
                     .addComponent(txt_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_gender)
-                    .addComponent(radBtn_male)
-                    .addComponent(radBtn_female)
-                    .addComponent(lbl_age)
-                    .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radBtn_Other))
+                    .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(radBtn_male)
+                        .addComponent(radBtn_female)
+                        .addComponent(lbl_age)
+                        .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radBtn_Other)))
                 .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_studentLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -436,12 +437,6 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             pargender="Female";
         
-        int age = Integer.parseInt(txt_age.getText().trim());
-        int assignedGroupID = AgeGroupService.groupAvailability(age);
-        if(assignedGroupID == -1){
-            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
-            return;
-        }
         
         CareTaker caretaker = new CareTaker(address,phone,parfirstName, parlastName, pargender);
         int caretakerId= CaretakerService.insertCaretaker(caretaker);
