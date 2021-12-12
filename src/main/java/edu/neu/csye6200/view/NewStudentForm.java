@@ -55,6 +55,7 @@ public class NewStudentForm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea_address = new javax.swing.JTextArea();
         lbl_address = new javax.swing.JLabel();
+        radBtn_Other = new javax.swing.JRadioButton();
         panel_parent = new javax.swing.JPanel();
         lbl_parFirstName = new javax.swing.JLabel();
         txt_parFirstName = new javax.swing.JTextField();
@@ -65,8 +66,10 @@ public class NewStudentForm extends javax.swing.JFrame {
         radBtn_parfemale = new javax.swing.JRadioButton();
         lbl_StudentID1 = new javax.swing.JLabel();
         txt_phoneno = new javax.swing.JTextField();
+        parbtn_Other = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         btn_add = new javax.swing.JButton();
+        btn_back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,6 +154,10 @@ public class NewStudentForm extends javax.swing.JFrame {
 
         lbl_address.setText("Address :");
 
+        btnGrp_gender.add(radBtn_Other);
+        radBtn_Other.setSelected(true);
+        radBtn_Other.setText("Other");
+
         javax.swing.GroupLayout panel_studentLayout = new javax.swing.GroupLayout(panel_student);
         panel_student.setLayout(panel_studentLayout);
         panel_studentLayout.setHorizontalGroup(
@@ -173,6 +180,8 @@ public class NewStudentForm extends javax.swing.JFrame {
                                 .addComponent(radBtn_male)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(radBtn_female)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radBtn_Other)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +222,8 @@ public class NewStudentForm extends javax.swing.JFrame {
                     .addComponent(radBtn_male)
                     .addComponent(radBtn_female)
                     .addComponent(lbl_age)
-                    .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radBtn_Other))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_StudentId)
@@ -267,6 +277,14 @@ public class NewStudentForm extends javax.swing.JFrame {
             }
         });
 
+        btnGrp_parGender.add(parbtn_Other);
+        parbtn_Other.setText("Other");
+        parbtn_Other.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parbtn_OtherActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_parentLayout = new javax.swing.GroupLayout(panel_parent);
         panel_parent.setLayout(panel_parentLayout);
         panel_parentLayout.setHorizontalGroup(
@@ -288,6 +306,8 @@ public class NewStudentForm extends javax.swing.JFrame {
                                 .addComponent(radBtn_parmale)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(radBtn_parfemale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(parbtn_Other)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panel_parentLayout.createSequentialGroup()
                                 .addComponent(txt_parFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -310,7 +330,8 @@ public class NewStudentForm extends javax.swing.JFrame {
                 .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_gender1)
                     .addComponent(radBtn_parmale)
-                    .addComponent(radBtn_parfemale))
+                    .addComponent(radBtn_parfemale)
+                    .addComponent(parbtn_Other))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_StudentID1)
@@ -329,22 +350,25 @@ public class NewStudentForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(387, 387, 387)
-                    .addComponent(btn_add)
-                    .addContainerGap(387, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(387, 387, 387)
+                .addComponent(btn_add)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 58, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addComponent(btn_add)
-                    .addContainerGap(15, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btn_add)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -354,7 +378,10 @@ public class NewStudentForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_back)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panel_Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(panel_parent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -362,9 +389,12 @@ public class NewStudentForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel_student, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panel_student, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_back))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel_parent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -405,6 +435,8 @@ public class NewStudentForm extends javax.swing.JFrame {
         
         if(radBtn_parmale.isSelected())
             pargender="Male";
+        else if(parbtn_Other.isSelected())
+            pargender="Other";
         else
             pargender="Female";
         
@@ -421,8 +453,11 @@ public class NewStudentForm extends javax.swing.JFrame {
         
         if(radBtn_male.isSelected())
             gender="Male";
+        else if(radBtn_Other.isSelected())
+            gender="Other";
         else
             gender="Female";
+        
         
         
         Student st = new Student(age,caretakerId,firstName,lastName,gender);
@@ -456,6 +491,18 @@ public class NewStudentForm extends javax.swing.JFrame {
     private void txt_phonenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phonenoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_phonenoActionPerformed
+
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        HomeFrame homeframe = new HomeFrame();
+        homeframe.setVisible(true);
+        homeframe.pack();
+    }//GEN-LAST:event_btn_backActionPerformed
+
+    private void parbtn_OtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parbtn_OtherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_parbtn_OtherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -496,6 +543,7 @@ public class NewStudentForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btnGrp_gender;
     private javax.swing.ButtonGroup btnGrp_parGender;
     private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_back;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_FormTitle;
@@ -514,6 +562,8 @@ public class NewStudentForm extends javax.swing.JFrame {
     private javax.swing.JPanel panel_Title;
     private javax.swing.JPanel panel_parent;
     private javax.swing.JPanel panel_student;
+    private javax.swing.JRadioButton parbtn_Other;
+    private javax.swing.JRadioButton radBtn_Other;
     private javax.swing.JRadioButton radBtn_female;
     private javax.swing.JRadioButton radBtn_male;
     private javax.swing.JRadioButton radBtn_parfemale;

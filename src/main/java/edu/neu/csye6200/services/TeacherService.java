@@ -29,12 +29,14 @@ public class TeacherService {
         if(con!=null){
             try {
                 
-                String query = "insert into Teacher (firstname,lastname,gender,agegroupId) values (?,?,?,?)";
+                String query = "insert into Teacher (firstname,lastname,gender,agegroupId,registrationdate) values (?,?,?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 stmt.setString(1,t.getFirstName());
                 stmt.setString(2,t.getLastName());
                 stmt.setString(3, t.getGender());
                 stmt.setInt(4,t.getAgegroupId());
+                stmt.setString(5,t.getRegistrationDate());
+               
                 
                 stmt.executeUpdate();  
                 
@@ -72,7 +74,7 @@ public class TeacherService {
                 List<Teacher> list = new ArrayList<Teacher>();
 //                stmt.getGeneratedKeys();
                 while(rs.next()){
-                   Teacher t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender")); 
+                   Teacher t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender"), rs.getString(5)); 
                    t.setTeacherID(rs.getInt(1));
                    list.add(t);
                 }

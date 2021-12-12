@@ -6,6 +6,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private String gender;
+        private String registrationdate;
 
     public Person(String firstName, String lastName, String gender) {
         this.firstName = firstName;
@@ -39,5 +40,11 @@ public class Person {
 	public void setId(int id) {
 		this.id = id;
 	}
+        public String getRegistrationDate(){
+            return registrationdate;
+        }
+        public void setRegistrationDate(String registrationdate){
+            this.registrationdate=registrationdate;
+        }
 
 }
