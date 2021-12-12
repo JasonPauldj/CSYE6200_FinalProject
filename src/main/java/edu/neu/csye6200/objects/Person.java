@@ -13,6 +13,11 @@ public class Person {
         this.lastName = lastName;
         this.gender = gender;
     }
+    
+    public Person(String firstName, String lastName, String gender, String registrationdate) {
+        this(firstName, lastName, gender);
+        this.registrationdate = registrationdate;
+    }
 	
         
         

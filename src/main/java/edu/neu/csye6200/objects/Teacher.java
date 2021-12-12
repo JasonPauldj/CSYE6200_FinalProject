@@ -11,7 +11,7 @@ public class Teacher extends Person{
     }
 
     public Teacher(int agegroupId, String firstName, String lastName, String gender, String registrationdate) {
-        super(firstName, lastName, gender);
+        super(firstName, lastName, gender, registrationdate);
         this.agegroupId = agegroupId;
     }
     
