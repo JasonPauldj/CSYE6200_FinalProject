@@ -2,6 +2,7 @@ package edu.neu.csye6200.objects;
 
 import java.sql.Date;
 import java.util.List;
+import edu.neu.csye6200.services.AgeGroupService;
 
 public class Student extends Person {
 
@@ -14,18 +15,21 @@ public class Student extends Person {
 	private String phone;
 	private String registrationdate;
         private int caretakerID;
+        private int groupID;
 
-        public Student(int age,int caretakerID, String firstName, String lastName, String gender) {
+        public Student(int age,int caretakerID, String firstName, String lastName, String gender, int groupID) {
         super(firstName, lastName, gender);
         this.age = age;
         this.caretakerID = caretakerID;
+        this.groupID = groupID;
     }
 
-      public Student(int studentID, int age, int caretakerID, String firstName, String lastName, String gender) {
+      public Student(int studentID, int age, int caretakerID, String firstName, String lastName, String gender, int groupID) {
         super(firstName, lastName, gender);
         this.studentID = studentID;
         this.age = age;
         this.caretakerID = caretakerID;
+        this.groupID = groupID;
     }
       @Override
       public String toString(){
@@ -45,7 +49,9 @@ public class Student extends Person {
         
     
         
-        
+        public int getGroupID(){
+            return groupID;
+        }
 	
 	public double getGpa() {
 		return gpa;

@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  */
 public class AgeGroupService {
 
-    public int getAgeGroup(Connection con, int groupNo) {
+    public static int getAgeGroup(Connection con, int groupNo) {
         try {
             Statement stmt = con.createStatement();
 
@@ -41,13 +41,13 @@ public class AgeGroupService {
         return -1;
     }
     
-    public int groupAvailability(int age){
+    public static int groupAvailability(int age){
          //return available groupID for student of a particular age, -1 if no vacant positions available
         Connection con = DBConnection.getConnection();
         return groupAvailability(con, age);
     }
     
-    public int groupAvailability(Connection con, int age){
+    public static int groupAvailability(Connection con, int age){
         //return available groupID for student of a particular age, -1 if no vacant positions available
         AgeGroupEnum ageGroup = AgeGroupEnum.whichAgeGroupForAge(age);
         if(ageGroup == null)

@@ -15,6 +15,11 @@ public class Teacher extends Person{
         this.agegroupId = agegroupId;
     }
     
+    public Teacher(int agegroupId, String firstName, String lastName, String gender) {
+        super(firstName, lastName, gender);
+        this.agegroupId = agegroupId;
+    }
+    
     @Override
     public String toString(){
         return "teacher :"+getFirstName()+getLastName()+getGender()+agegroupId+teacherID;

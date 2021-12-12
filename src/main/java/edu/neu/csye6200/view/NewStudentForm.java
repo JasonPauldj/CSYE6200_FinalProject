@@ -7,6 +7,7 @@ package edu.neu.csye6200.view;
 import edu.neu.csye6200.controller.DBConnection;
 import edu.neu.csye6200.objects.Student;
 import edu.neu.csye6200.objects.CareTaker;
+import edu.neu.csye6200.services.AgeGroupService;
 import edu.neu.csye6200.services.CaretakerService;
 import edu.neu.csye6200.services.StudentService;
 import java.sql.Connection;
@@ -458,9 +459,12 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             gender="Female";
         
+        int assignedGroupID = AgeGroupService.groupAvailability(age);
+        if(assignedGroupID == -1)
+            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
+            return;
         
-        
-        Student st = new Student(age,caretakerId,firstName,lastName,gender);
+        Student st = new Student(age,caretakerId,firstName,lastName,gender, assignedGroupID);
         
         StudentService.insertStudent(st);
         

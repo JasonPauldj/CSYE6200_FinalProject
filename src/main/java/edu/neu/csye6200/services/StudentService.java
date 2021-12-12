@@ -31,13 +31,14 @@ public class StudentService {
         if(con!=null){
             try {
                 
-                String query = "insert into Student (firstname,lastname,age,gender,caretakerId) values (?,?,?,?,?)";
+                String query = "insert into Student (firstname,lastname,age,gender,caretakerId,groupid) values (?,?,?,?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 stmt.setString(1,st.getFirstName());
                 stmt.setString(2,st.getLastName());
                 stmt.setInt(3, st.getAge());
                 stmt.setString(4, st.getGender());
                 stmt.setInt(5, st.getCaretakerID());
+                stmt.setInt(6, st.getGroupID());
                 
                 stmt.executeUpdate();  
                 
@@ -98,7 +99,7 @@ public class StudentService {
         try{
 //            ResultSetMetaData rsmd = rs.getMetaData();
             while(rs.next()){
-                Student s = new Student(rs.getInt("studentId"),rs.getInt("age"),rs.getInt("caretakerId"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("gender"));
+                Student s = new Student(rs.getInt("studentId"),rs.getInt("age"),rs.getInt("caretakerId"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("gender"),rs.getInt("groupid"));
                 studentList.add(s);
             }
             
