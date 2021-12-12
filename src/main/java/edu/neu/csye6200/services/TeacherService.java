@@ -29,13 +29,13 @@ public class TeacherService {
         if(con!=null){
             try {
                 
-                String query = "insert into Teacher (firstname,lastname,gender,agegroupId,registrationdate) values (?,?,?,?,?)";
+                String query = "insert into Teacher (firstname,lastname,gender,agegroupId,lastreviewdate) values (?,?,?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 stmt.setString(1,t.getFirstName());
                 stmt.setString(2,t.getLastName());
                 stmt.setString(3, t.getGender());
                 stmt.setInt(4,t.getAgegroupId());
-                stmt.setString(5,t.getRegistrationDate());
+                stmt.setString(5,t.getReviewdate());
                
                 
                 stmt.executeUpdate();  
