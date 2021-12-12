@@ -46,13 +46,12 @@ public class NewTeacherForm extends javax.swing.JFrame {
         radBtn_male = new javax.swing.JRadioButton();
         radBtn_female = new javax.swing.JRadioButton();
         btn_add = new javax.swing.JButton();
-        lbl_firstName1 = new javax.swing.JLabel();
-        jCb_agegroup = new javax.swing.JComboBox<>();
         radbtn_Others = new javax.swing.JRadioButton();
         combo_month = new javax.swing.JComboBox<>();
         combo_day = new javax.swing.JComboBox<>();
         combo_year = new javax.swing.JComboBox<>();
         Date = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,29 +64,6 @@ public class NewTeacherForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
-        panel_Title.setLayout(panel_TitleLayout);
-        panel_TitleLayout.setHorizontalGroup(
-            panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_TitleLayout.createSequentialGroup()
-                .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_TitleLayout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(lbl_Title))
-                    .addGroup(panel_TitleLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel_TitleLayout.setVerticalGroup(
-            panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_TitleLayout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(9, 9, 9)
-                .addComponent(lbl_Title)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
 
         lbl_firstName.setText("First Name :");
 
@@ -126,10 +102,6 @@ public class NewTeacherForm extends javax.swing.JFrame {
                 btn_addActionPerformed(evt);
             }
         });
-
-        lbl_firstName1.setText("Age Group :");
-
-        jCb_agegroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age Group 1", "Age Group 2", "Age Group 3", "Age Group 4", "Age Group 5" }));
 
         buttonGroup1.add(radbtn_Others);
         radbtn_Others.setText("Other");
@@ -192,31 +164,20 @@ public class NewTeacherForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(lbl_firstName1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCb_agegroup, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(Date)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14)
+                .addComponent(Date)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(222, Short.MAX_VALUE))
         );
         panel_teacherFormLayout.setVerticalGroup(
             panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_firstName1)
-                    .addComponent(jCb_agegroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
+                .addGap(35, 35, 35)
                 .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_firstName)
                     .addComponent(lbl_lastName)
@@ -234,9 +195,46 @@ public class NewTeacherForm extends javax.swing.JFrame {
                     .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Date))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(btn_add)
                 .addGap(45, 45, 45))
+        );
+
+        jLabel1.setText("ADD NEW TEACHER");
+
+        javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
+        panel_Title.setLayout(panel_TitleLayout);
+        panel_TitleLayout.setHorizontalGroup(
+            panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_TitleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_TitleLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addContainerGap(502, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_TitleLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbl_Title)
+                        .addGap(201, 201, 201))
+                    .addGroup(panel_TitleLayout.createSequentialGroup()
+                        .addComponent(panel_teacherForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addGroup(panel_TitleLayout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panel_TitleLayout.setVerticalGroup(
+            panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_TitleLayout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(9, 9, 9)
+                .addComponent(lbl_Title)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(8, 8, 8)
+                .addComponent(panel_teacherForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,18 +242,12 @@ public class NewTeacherForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel_Title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panel_teacherForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel_teacherForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 161, Short.MAX_VALUE))
+                .addGap(0, 135, Short.MAX_VALUE))
         );
 
         pack();
@@ -390,10 +382,9 @@ public class NewTeacherForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combo_month;
     private javax.swing.JComboBox<String> combo_year;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jCb_agegroup;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JLabel lbl_firstName;
-    private javax.swing.JLabel lbl_firstName1;
     private javax.swing.JLabel lbl_gender;
     private javax.swing.JLabel lbl_lastName;
     private javax.swing.JPanel panel_Title;

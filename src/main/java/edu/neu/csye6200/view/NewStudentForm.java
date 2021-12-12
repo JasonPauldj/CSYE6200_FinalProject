@@ -53,8 +53,6 @@ public class NewStudentForm extends javax.swing.JFrame {
         radBtn_female = new javax.swing.JRadioButton();
         lbl_age = new javax.swing.JLabel();
         txt_age = new javax.swing.JTextField();
-        lbl_StudentId = new javax.swing.JLabel();
-        txt_studentID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea_address = new javax.swing.JTextArea();
         lbl_address = new javax.swing.JLabel();
@@ -142,15 +140,6 @@ public class NewStudentForm extends javax.swing.JFrame {
             }
         });
 
-        lbl_StudentId.setText("Student ID :");
-
-        txt_studentID.setPreferredSize(new java.awt.Dimension(10, 25));
-        txt_studentID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_studentIDActionPerformed(evt);
-            }
-        });
-
         txtArea_address.setColumns(20);
         txtArea_address.setRows(3);
         jScrollPane1.setViewportView(txtArea_address);
@@ -170,10 +159,10 @@ public class NewStudentForm extends javax.swing.JFrame {
                 .addComponent(lbl_FormTitle)
                 .addGap(192, 192, 192))
             .addGroup(panel_studentLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_studentLayout.createSequentialGroup()
-                        .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(15, 15, 15)
+                        .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbl_firstName)
                             .addComponent(lbl_gender))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,27 +174,22 @@ public class NewStudentForm extends javax.swing.JFrame {
                                 .addComponent(radBtn_female)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(radBtn_Other)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_studentLayout.createSequentialGroup()
-                                .addComponent(lbl_lastName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_studentLayout.createSequentialGroup()
-                                .addComponent(lbl_age)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(panel_studentLayout.createSequentialGroup()
-                        .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_StudentId)
-                            .addComponent(lbl_address))
+                        .addGap(32, 32, 32)
+                        .addComponent(lbl_address)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_studentLayout.createSequentialGroup()
+                        .addComponent(lbl_lastName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_studentLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txt_studentID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_studentLayout.createSequentialGroup()
+                        .addComponent(lbl_age)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panel_studentLayout.setVerticalGroup(
@@ -227,15 +211,14 @@ public class NewStudentForm extends javax.swing.JFrame {
                     .addComponent(lbl_age)
                     .addComponent(txt_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(radBtn_Other))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_StudentId)
-                    .addComponent(txt_studentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_address)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(panel_studentLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_address))
+                    .addGroup(panel_studentLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         panel_parent.setBorder(javax.swing.BorderFactory.createTitledBorder("Parent"));
@@ -402,7 +385,7 @@ public class NewStudentForm extends javax.swing.JFrame {
                 .addComponent(panel_parent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();
@@ -486,10 +469,6 @@ public class NewStudentForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_addActionPerformed
 
-    private void txt_studentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_studentIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_studentIDActionPerformed
-
     private void txt_parFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_parFirstNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_parFirstNameActionPerformed
@@ -563,7 +542,6 @@ public class NewStudentForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_FormTitle;
     private javax.swing.JLabel lbl_Logo;
     private javax.swing.JLabel lbl_StudentID1;
-    private javax.swing.JLabel lbl_StudentId;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JLabel lbl_address;
     private javax.swing.JLabel lbl_age;
@@ -589,6 +567,5 @@ public class NewStudentForm extends javax.swing.JFrame {
     private javax.swing.JTextField txt_parFirstName;
     private javax.swing.JTextField txt_parLastame;
     private javax.swing.JTextField txt_phoneno;
-    private javax.swing.JTextField txt_studentID;
     // End of variables declaration//GEN-END:variables
 }
