@@ -12,7 +12,7 @@ public class Student extends Person {
 	private List<Immunization> immunizationList;
 	private String address;
 	private String phone;
-	private Date registrationDate;
+	private String registrationdate;
         private int caretakerID;
 
         public Student(int age,int caretakerID, String firstName, String lastName, String gender) {
@@ -67,11 +67,11 @@ public class Student extends Person {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getRegistrationDate() {
-		return registrationDate;
+	public String getRegistrationDate() {
+		return registrationdate;
 	}
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
+	public void setRegistrationDate(String registrationDate) {
+		this.registrationdate = registrationDate;
 	}
 	public int getStudentID() {
 		return studentID;

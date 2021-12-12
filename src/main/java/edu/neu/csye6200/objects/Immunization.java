@@ -5,8 +5,28 @@ import java.util.List;
 
 public class Immunization {
 	private String vaccineName;
-	private List<Date> datesOfVaccination;
+	private String dateOfVaccination;
 	private int frequency;
+        private int studentId;
+
+    public Immunization(String vaccineName, String dateOfVaccination, int frequency, int studentId) {
+        this.vaccineName = vaccineName;
+        this.dateOfVaccination = dateOfVaccination;
+        this.frequency = frequency;
+        this.studentId = studentId;
+    }
+
+    public Immunization() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 	
 	public String getVaccineName() {
 		return vaccineName;
@@ -14,11 +34,11 @@ public class Immunization {
 	public void setVaccineName(String vaccineName) {
 		this.vaccineName = vaccineName;
 	}
-	public List<Date> getDatesOfVaccination() {
-		return datesOfVaccination;
+	public String getDatesOfVaccination() {
+		return dateOfVaccination;
 	}
-	public void setDatesOfVaccination(List<Date> datesOfVaccination) {
-		this.datesOfVaccination = datesOfVaccination;
+	public void setDatesOfVaccination(String datesOfVaccination) {
+		this.dateOfVaccination = datesOfVaccination;
 	}
 	public int getFrequency() {
 		return frequency;

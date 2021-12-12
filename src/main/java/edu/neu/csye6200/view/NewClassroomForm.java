@@ -34,6 +34,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
         panel_Title = new javax.swing.JPanel();
         lbl_Logo = new javax.swing.JLabel();
         lbl_Title = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel_classroomform = new javax.swing.JPanel();
         jCb_agegroup = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -48,21 +49,34 @@ public class NewClassroomForm extends javax.swing.JFrame {
         lbl_Title.setText("NORTHEASTERN DAYCARE");
         lbl_Title.setToolTipText("");
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
         panel_Title.setLayout(panel_TitleLayout);
         panel_TitleLayout.setHorizontalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_TitleLayout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(lbl_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
+                .addGap(303, 303, 303)
                 .addComponent(lbl_Title)
-                .addGap(0, 200, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel_TitleLayout.setVerticalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_Title))
+            .addComponent(lbl_Title)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_TitleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jCb_agegroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age Group 1", "Age Group 2", "Age Group 3", "Age Group 4", "Age Group 5" }));
@@ -138,7 +152,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
                 .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panel_classroomform, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,6 +195,14 @@ public class NewClassroomForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_addclassroomActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        HomeFrame homeframe = new HomeFrame();
+        homeframe.setVisible(true);
+        homeframe.pack();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -218,6 +240,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addclassroom;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCb_agegroup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

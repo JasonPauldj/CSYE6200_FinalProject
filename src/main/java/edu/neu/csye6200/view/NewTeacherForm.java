@@ -33,8 +33,10 @@ public class NewTeacherForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         panel_Title = new javax.swing.JPanel();
         lbl_Title = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel_teacherForm = new javax.swing.JPanel();
         lbl_firstName = new javax.swing.JLabel();
         txt_firstName = new javax.swing.JTextField();
@@ -46,25 +48,43 @@ public class NewTeacherForm extends javax.swing.JFrame {
         btn_add = new javax.swing.JButton();
         lbl_firstName1 = new javax.swing.JLabel();
         jCb_agegroup = new javax.swing.JComboBox<>();
+        radbtn_Others = new javax.swing.JRadioButton();
+        combo_month = new javax.swing.JComboBox<>();
+        combo_day = new javax.swing.JComboBox<>();
+        combo_year = new javax.swing.JComboBox<>();
+        Date = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl_Title.setText("NORTHEASTERN DAYCARE");
         lbl_Title.setToolTipText("");
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
         panel_Title.setLayout(panel_TitleLayout);
         panel_TitleLayout.setHorizontalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_TitleLayout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(lbl_Title)
+                .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_TitleLayout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(lbl_Title))
+                    .addGroup(panel_TitleLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_TitleLayout.setVerticalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_TitleLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addGap(9, 9, 9)
                 .addComponent(lbl_Title)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -89,6 +109,7 @@ public class NewTeacherForm extends javax.swing.JFrame {
 
         lbl_gender.setText("Gender :");
 
+        buttonGroup1.add(radBtn_male);
         radBtn_male.setText("Male");
         radBtn_male.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +117,7 @@ public class NewTeacherForm extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radBtn_female);
         radBtn_female.setText("Female");
 
         btn_add.setText("Add Teacher");
@@ -109,6 +131,39 @@ public class NewTeacherForm extends javax.swing.JFrame {
 
         jCb_agegroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Age Group 1", "Age Group 2", "Age Group 3", "Age Group 4", "Age Group 5" }));
 
+        buttonGroup1.add(radbtn_Others);
+        radbtn_Others.setText("Other");
+        radbtn_Others.setToolTipText("");
+        radbtn_Others.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radbtn_OthersActionPerformed(evt);
+            }
+        });
+
+        combo_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December" }));
+        combo_month.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_monthActionPerformed(evt);
+            }
+        });
+
+        combo_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        combo_day.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_dayActionPerformed(evt);
+            }
+        });
+
+        combo_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        combo_year.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_yearActionPerformed(evt);
+            }
+        });
+
+        Date.setText("Date");
+        Date.setToolTipText("");
+
         javax.swing.GroupLayout panel_teacherFormLayout = new javax.swing.GroupLayout(panel_teacherForm);
         panel_teacherForm.setLayout(panel_teacherFormLayout);
         panel_teacherFormLayout.setHorizontalGroup(
@@ -119,16 +174,23 @@ public class NewTeacherForm extends javax.swing.JFrame {
                     .addComponent(lbl_gender))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_firstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panel_teacherFormLayout.createSequentialGroup()
                         .addComponent(radBtn_male)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(radBtn_female)
-                        .addGap(0, 113, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_lastName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radbtn_Others)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_teacherFormLayout.createSequentialGroup()
+                        .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btn_add))
+                            .addComponent(txt_firstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_lastName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(panel_teacherFormLayout.createSequentialGroup()
                 .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_teacherFormLayout.createSequentialGroup()
@@ -137,9 +199,15 @@ public class NewTeacherForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCb_agegroup, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(btn_add)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(14, 14, 14)
+                        .addComponent(Date)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         panel_teacherFormLayout.setVerticalGroup(
             panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,10 +226,17 @@ public class NewTeacherForm extends javax.swing.JFrame {
                 .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_gender)
                     .addComponent(radBtn_male)
-                    .addComponent(radBtn_female))
-                .addGap(18, 18, 18)
+                    .addComponent(radBtn_female)
+                    .addComponent(radbtn_Others))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Date))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btn_add)
-                .addGap(0, 94, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,7 +255,7 @@ public class NewTeacherForm extends javax.swing.JFrame {
                 .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel_teacherForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 158, Short.MAX_VALUE))
+                .addGap(0, 161, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,13 +291,23 @@ public class NewTeacherForm extends javax.swing.JFrame {
         int groupId = selectedGroup.getAgeGroupId();
         
         String gender="";
+        String registrationdate;
+        
+        String day="";String month="";String year="";
+       // month=combo_month.
+       //day=combo_month.
+       //year=combo_year.
+        registrationdate=day+month+year;
+        
         
         if(radBtn_male.isSelected())
             gender="Male";
+        else if(radbtn_Others.isSelected())
+            gender="Other";
         else
             gender="Female";
         
-        Teacher t = new Teacher(groupId,firstName,lastName,gender);
+        Teacher t = new Teacher(groupId,firstName,lastName,gender,registrationdate);
         
         int teacherId = TeacherService.insertTeacher(t);
         
@@ -237,6 +322,30 @@ public class NewTeacherForm extends javax.swing.JFrame {
         
             
     }//GEN-LAST:event_btn_addActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        HomeFrame homeframe = new HomeFrame();
+        homeframe.setVisible(true);
+        homeframe.pack();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void radbtn_OthersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radbtn_OthersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radbtn_OthersActionPerformed
+
+    private void combo_monthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_monthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_monthActionPerformed
+
+    private void combo_dayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_dayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_dayActionPerformed
+
+    private void combo_yearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_yearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_yearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,7 +383,13 @@ public class NewTeacherForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Date;
     private javax.swing.JButton btn_add;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> combo_day;
+    private javax.swing.JComboBox<String> combo_month;
+    private javax.swing.JComboBox<String> combo_year;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCb_agegroup;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JLabel lbl_firstName;
@@ -285,6 +400,7 @@ public class NewTeacherForm extends javax.swing.JFrame {
     private javax.swing.JPanel panel_teacherForm;
     private javax.swing.JRadioButton radBtn_female;
     private javax.swing.JRadioButton radBtn_male;
+    private javax.swing.JRadioButton radbtn_Others;
     private javax.swing.JTextField txt_firstName;
     private javax.swing.JTextField txt_lastName;
     // End of variables declaration//GEN-END:variables
