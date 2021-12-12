@@ -88,5 +88,44 @@ public class CaretakerService {
 
         return ct;
     }
+    
+    
+    public static CareTaker getCaretakerFromCaretakerId(int caretakerId) {
+        Connection con = DBConnection.getConnection();
+        CareTaker ct = null;
+        if (con != null) {
+            try {
+                String query = "select * from Caretaker where caretakerId=?";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setInt(1, caretakerId);
+
+                ResultSet rs = stmt.executeQuery();
+
+                int cnt = 0;
+
+                while (rs.next() && cnt == 0) {
+                    String address = rs.getString("address");
+                    String firstname = rs.getString("firstname");
+                    String lastname = rs.getString("lastname");
+                    String gender = rs.getString("gender");
+                    String phone = rs.getString("phonenumber");
+                    int id = rs.getInt("caretakerId");
+
+                    ct = new CareTaker(address, phone, id, firstname, lastname, gender);
+                    cnt++;
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class
+                        .getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+
+        }
+
+        return ct;
+    }
+    
+    
 
 }
