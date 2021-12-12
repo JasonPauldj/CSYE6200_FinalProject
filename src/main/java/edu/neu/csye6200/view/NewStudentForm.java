@@ -426,6 +426,13 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             pargender="Female";
         
+        int age = Integer.parseInt(txt_age.getText().trim());
+        int assignedGroupID = AgeGroupService.groupAvailability(age);
+        if(assignedGroupID == -1){
+            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
+            return;
+        }
+        
         CareTaker caretaker = new CareTaker(address,phone,parfirstName, parlastName, pargender);
         int caretakerId= CaretakerService.insertCaretaker(caretaker);
       
@@ -435,7 +442,7 @@ public class NewStudentForm extends javax.swing.JFrame {
         
         String gender="";
         
-        int age = Integer.parseInt(txt_age.getText().trim());
+        
         
         if(radBtn_male.isSelected())
             gender="Male";
@@ -444,11 +451,7 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             gender="Female";
         
-        int assignedGroupID = AgeGroupService.groupAvailability(age);
-        if(assignedGroupID == -1){
-            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
-            return;
-        }
+        
 //        String registrationDate = DateTimeFormatter.ofPattern("yyyy/dd/MM").toString();
 //        System.out.println(registrationDate);
         

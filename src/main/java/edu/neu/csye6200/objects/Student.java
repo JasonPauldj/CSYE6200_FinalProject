@@ -15,14 +15,16 @@ public class Student extends Person {
 	private String phone;
         private int caretakerID;
         private int groupID;
+        private String registrationdate;
 
       public Student(int age, String address, String phone, String registrationdate, String firstName, String lastName, String gender, int caretakerID, int groupID) {
-          super(firstName, lastName, gender, registrationdate);
+          super(firstName, lastName, gender);
           this.age = age;
           this.caretakerID = caretakerID;
           this.groupID = groupID;
           this.address = address;
           this.phone = phone;
+          this.registrationdate = registrationdate;
     }
       public Student(int studentID,int age, String address, String phone, String registrationdate, String firstName, String lastName, String gender, int caretakerID, int groupID){
           this(age, address, phone, registrationdate, firstName, lastName, gender, caretakerID, groupID);
@@ -40,6 +42,13 @@ public class Student extends Person {
     public void setCaretakerID(int caretakerID) {
         this.caretakerID = caretakerID;
     }
+    
+        public String getRegistrationDate(){
+            return registrationdate;
+        }
+        public void setRegistrationDate(String registrationdate){
+            this.registrationdate=registrationdate;
+        }
       
       
 

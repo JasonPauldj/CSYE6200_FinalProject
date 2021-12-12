@@ -6,17 +6,12 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private String gender;
-        private String registrationdate;
+        
 
     public Person(String firstName, String lastName, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-    }
-    
-    public Person(String firstName, String lastName, String gender, String registrationdate) {
-        this(firstName, lastName, gender);
-        this.registrationdate = registrationdate;
     }
 	
         
@@ -45,11 +40,5 @@ public class Person {
 	public void setId(int id) {
 		this.id = id;
 	}
-        public String getRegistrationDate(){
-            return registrationdate;
-        }
-        public void setRegistrationDate(String registrationdate){
-            this.registrationdate=registrationdate;
-        }
 
 }

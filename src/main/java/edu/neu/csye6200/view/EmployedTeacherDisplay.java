@@ -33,7 +33,7 @@ public class EmployedTeacherDisplay extends javax.swing.JFrame {
             rowData[0] = list.get(i).getTeacherID();
             rowData[1]= list.get(i).getFirstName();
             rowData[2]= list.get(i).getLastName();    
-            rowData[3] = list.get(i).getRegistrationDate();
+            rowData[3] = list.get(i).getReviewdate();
             rowData[4]= list.get(i).getAgegroupId();
             rowData[5]= list.get(i).getGender();
             

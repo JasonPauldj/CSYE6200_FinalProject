@@ -4,15 +4,17 @@ public class Teacher extends Person{
     
     private int agegroupId;
     private int teacherID;
+    private String reviewdate;
     //String 
 
     public Teacher(String firstName, String lastName, String gender) {
         super(firstName, lastName, gender);
     }
 
-    public Teacher(int agegroupId, String firstName, String lastName, String gender, String registrationdate) {
-        super(firstName, lastName, gender, registrationdate);
+    public Teacher(int agegroupId, String firstName, String lastName, String gender, String reviewdate) {
+        super(firstName, lastName, gender);
         this.agegroupId = agegroupId;
+        this.reviewdate = reviewdate;
     }
     
     public Teacher(int agegroupId, String firstName, String lastName, String gender) {
@@ -37,6 +39,9 @@ public class Teacher extends Person{
 
     public void setTeacherID(int teacherID) {
         this.teacherID = teacherID;
+    }
+    public String getReviewdate(){
+        return reviewdate;
     }
 
 }
