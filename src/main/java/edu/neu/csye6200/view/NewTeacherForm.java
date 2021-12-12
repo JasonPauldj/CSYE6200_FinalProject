@@ -286,10 +286,11 @@ public class NewTeacherForm extends javax.swing.JFrame {
         String reviewdate;
         
         String day="";String month="";String year="";
-       // month=combo_month.
-       //day=combo_month.
+        month = (String)combo_month.getSelectedItem();
+       day = (String)combo_day.getSelectedItem();
        //year=combo_year.
-        reviewdate = day+month+year;
+//        reviewdate = day + "-" + month + "-" + year;
+        reviewdate = month + " " + day;
         
         
         if(radBtn_male.isSelected())

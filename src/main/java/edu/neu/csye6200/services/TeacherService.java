@@ -140,4 +140,29 @@ public class TeacherService {
         }
         
     }
+     public static Teacher getTeacherFromTeacherId(int teacherId){
+         Connection con = DBConnection.getConnection();
+         Teacher t;
+         if(con!=null){
+            try {
+                
+                String query = "Select * from Teacher where teacherId=" + teacherId;
+                PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                ResultSet rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                   t =  new Teacher(rs.getInt(5), rs.getString(2), rs.getString("lastname"), rs.getString("gender"), rs.getString("lastreviewdate")); 
+                   t.setTeacherID(rs.getInt(1));
+                   return t;
+                }
+                
+                return null;
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+        }
+        return null;
+     }
 }
