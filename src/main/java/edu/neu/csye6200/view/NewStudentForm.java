@@ -7,10 +7,13 @@ package edu.neu.csye6200.view;
 import edu.neu.csye6200.controller.DBConnection;
 import edu.neu.csye6200.objects.Student;
 import edu.neu.csye6200.objects.CareTaker;
+import edu.neu.csye6200.services.AgeGroupService;
 import edu.neu.csye6200.services.CaretakerService;
 import edu.neu.csye6200.services.StudentService;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -458,9 +461,20 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             gender="Female";
         
+        int assignedGroupID = AgeGroupService.groupAvailability(age);
+        if(assignedGroupID == -1){
+            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
+            return;
+        }
+//        String registrationDate = DateTimeFormatter.ofPattern("yyyy/dd/MM").toString();
+//        System.out.println(registrationDate);
         
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+        LocalDateTime now = LocalDateTime.now();  
+        String registrationDate = dtf.format(now);  
+        System.out.println(registrationDate);
         
-        Student st = new Student(age,caretakerId,firstName,lastName,gender);
+        Student st = new Student(age, address, phone, registrationDate, firstName,lastName, gender,caretakerId,assignedGroupID);
         
         StudentService.insertStudent(st);
         

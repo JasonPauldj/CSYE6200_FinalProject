@@ -65,6 +65,16 @@ public enum AgeGroupEnum {
         }
         return null;
     }
+    
+    public static AgeGroupEnum whichAgeGroupForAge(int age){
+        //find appropriate AgeGroupEnum for given integer age
+        for(AgeGroupEnum ageGroup : AgeGroupEnum.values())
+        {
+            if(age>=ageGroup.minLimitInMonths && age<=ageGroup.maxLimitInMonths)
+                return ageGroup;
+        }
+        return null;
+    }
       
         
 }

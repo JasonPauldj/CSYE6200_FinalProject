@@ -29,29 +29,30 @@ public class HomeFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_Title = new javax.swing.JPanel();
-        lbl_Title = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panel_HomeBtns = new javax.swing.JPanel();
-        btn_Immunization = new javax.swing.JButton();
-        btn_AddStudent = new javax.swing.JButton();
-        btn_addTeacher = new javax.swing.JButton();
-        btn_addClassroom = new javax.swing.JButton();
-        btn_editclassroom = new javax.swing.JButton();
-        txt_classroomId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_Title = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btn_Immunization = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btn_AddStudent = new javax.swing.JButton();
+        btn_addClassroom = new javax.swing.JButton();
+        btn_addTeacher = new javax.swing.JButton();
+        btn_editclassroom = new javax.swing.JButton();
+        txt_classroomId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
 
-        lbl_Title.setText("NORTHEASTERN DAYCARE");
-        lbl_Title.setToolTipText("");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/anilkumar/Desktop/CSYE_6200/src/main/java/edu/neu/csye6200/view/resources/logo.jpeg")); // NOI18N
         jLabel1.setToolTipText("");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/anilkumar/Desktop/CSYE_6200/src/main/java/edu/neu/csye6200/view/resources/logo.jpeg")); // NOI18N
         jLabel2.setToolTipText("");
 
         javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
@@ -60,70 +61,21 @@ public class HomeFrame extends javax.swing.JFrame {
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_TitleLayout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
-                .addComponent(lbl_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(241, 241, 241)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_TitleLayout.setVerticalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_TitleLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lbl_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-            .addComponent(jLabel2)
+            .addGroup(panel_TitleLayout.createSequentialGroup()
+                .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(97, 97, 97))
         );
 
-        panel_HomeBtns.setBackground(new java.awt.Color(255, 102, 102));
+        panel_HomeBtns.setBackground(new java.awt.Color(255, 255, 255));
         panel_HomeBtns.setForeground(new java.awt.Color(255, 204, 0));
-
-        btn_Immunization.setBackground(new java.awt.Color(255, 255, 153));
-        btn_Immunization.setText("Immunization Alerts");
-        btn_Immunization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ImmunizationActionPerformed(evt);
-            }
-        });
-
-        btn_AddStudent.setBackground(new java.awt.Color(255, 255, 153));
-        btn_AddStudent.setText("Add New Student");
-        btn_AddStudent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_AddStudentActionPerformed(evt);
-            }
-        });
-
-        btn_addTeacher.setBackground(new java.awt.Color(255, 255, 153));
-        btn_addTeacher.setText("Add New Teacher");
-        btn_addTeacher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addTeacherActionPerformed(evt);
-            }
-        });
-
-        btn_addClassroom.setBackground(new java.awt.Color(255, 255, 153));
-        btn_addClassroom.setText("Add New Classroom");
-        btn_addClassroom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addClassroomActionPerformed(evt);
-            }
-        });
-
-        btn_editclassroom.setBackground(new java.awt.Color(255, 255, 153));
-        btn_editclassroom.setText("Edit Classroom");
-        btn_editclassroom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_editclassroomActionPerformed(evt);
-            }
-        });
-
-        txt_classroomId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_classroomIdActionPerformed(evt);
-            }
-        });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setText("View Vaccination Anniversaries");
@@ -141,6 +93,25 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Enrolled Students");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                display_student_1ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Employeed Teachers");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                display_teacher_employeedActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel4.setText("Details about daycare members");
+
+        jLabel5.setText("hdvfdj");
+
         javax.swing.GroupLayout panel_HomeBtnsLayout = new javax.swing.GroupLayout(panel_HomeBtns);
         panel_HomeBtns.setLayout(panel_HomeBtnsLayout);
         panel_HomeBtnsLayout.setHorizontalGroup(
@@ -148,72 +119,174 @@ public class HomeFrame extends javax.swing.JFrame {
             .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
                 .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btn_AddStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_Immunization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txt_classroomId, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_addClassroom))
-                            .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(btn_editclassroom))
-                            .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_addTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton2))
-                            .addComponent(jButton1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
+                    .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton2))
+                    .addGroup(panel_HomeBtnsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         panel_HomeBtnsLayout.setVerticalGroup(
             panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_HomeBtnsLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_AddStudent)
-                    .addComponent(btn_addTeacher))
-                .addGap(26, 26, 26)
-                .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_addClassroom)
-                    .addComponent(btn_Immunization))
-                .addGap(18, 18, 18)
-                .addGroup(panel_HomeBtnsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_classroomId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_editclassroom))
+                .addGap(24, 24, 24)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel5)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
+
+        lbl_Title.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        lbl_Title.setText("NORTHEASTERN");
+        lbl_Title.setToolTipText("");
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel3.setText("DAYCARE");
+
+        btn_Immunization.setBackground(new java.awt.Color(234, 28, 44));
+        btn_Immunization.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Immunization.setText("Immunization Alerts");
+        btn_Immunization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ImmunizationActionPerformed(evt);
+            }
+        });
+
+        btn_AddStudent.setBackground(new java.awt.Color(255, 255, 153));
+        btn_AddStudent.setText("Add New Student");
+        btn_AddStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AddStudentActionPerformed(evt);
+            }
+        });
+
+        btn_addClassroom.setBackground(new java.awt.Color(255, 255, 153));
+        btn_addClassroom.setText("Add New Classroom");
+        btn_addClassroom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addClassroomActionPerformed(evt);
+            }
+        });
+
+        btn_addTeacher.setBackground(new java.awt.Color(255, 255, 153));
+        btn_addTeacher.setText("Add New Teacher");
+        btn_addTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addTeacherActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(btn_addClassroom)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_AddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_addTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(btn_addTeacher)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_AddStudent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_addClassroom))
+        );
+
+        btn_editclassroom.setBackground(new java.awt.Color(255, 255, 153));
+        btn_editclassroom.setText("Edit Classroom");
+        btn_editclassroom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editclassroomActionPerformed(evt);
+            }
+        });
+
+        txt_classroomId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_classroomIdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(131, 131, 131)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(431, 431, 431)
+                        .addComponent(btn_Immunization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panel_HomeBtns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_editclassroom, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_classroomId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panel_HomeBtns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92)))
+                .addGap(1057, 1057, 1057))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel_HomeBtns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(btn_Immunization))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(btn_editclassroom)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_classroomId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(panel_HomeBtns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pack();
@@ -270,6 +343,27 @@ public class HomeFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void display_student_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_display_student_1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        EnrolledStudentsDisplay1 display = new EnrolledStudentsDisplay1();
+        display.setVisible(true);
+    }//GEN-LAST:event_display_student_1ActionPerformed
+
+    private void display_teacher_employeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_display_teacher_employeedActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        EmployedTeacherDisplay display = new EmployedTeacherDisplay();
+        display.setVisible(true);
+    }//GEN-LAST:event_display_teacher_employeedActionPerformed
+
+    private void display_student_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        EnrolledStudentsDisplay1 display = new EnrolledStudentsDisplay1();
+        display.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,6 +398,7 @@ public class HomeFrame extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AddStudent;
@@ -313,8 +408,14 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_editclassroom;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JPanel panel_HomeBtns;
     private javax.swing.JPanel panel_Title;

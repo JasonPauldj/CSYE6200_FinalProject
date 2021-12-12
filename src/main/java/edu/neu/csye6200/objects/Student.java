@@ -2,6 +2,7 @@ package edu.neu.csye6200.objects;
 
 import java.sql.Date;
 import java.util.List;
+import edu.neu.csye6200.services.AgeGroupService;
 
 public class Student extends Person {
 
@@ -12,21 +13,21 @@ public class Student extends Person {
 	private List<Immunization> immunizationList;
 	private String address;
 	private String phone;
-	private String registrationdate;
         private int caretakerID;
+        private int groupID;
 
-        public Student(int age,int caretakerID, String firstName, String lastName, String gender) {
-        super(firstName, lastName, gender);
-        this.age = age;
-        this.caretakerID = caretakerID;
+      public Student(int age, String address, String phone, String registrationdate, String firstName, String lastName, String gender, int caretakerID, int groupID) {
+          super(firstName, lastName, gender, registrationdate);
+          this.age = age;
+          this.caretakerID = caretakerID;
+          this.groupID = groupID;
+          this.address = address;
+          this.phone = phone;
     }
-
-      public Student(int studentID, int age, int caretakerID, String firstName, String lastName, String gender) {
-        super(firstName, lastName, gender);
-        this.studentID = studentID;
-        this.age = age;
-        this.caretakerID = caretakerID;
-    }
+      public Student(int studentID,int age, String address, String phone, String registrationdate, String firstName, String lastName, String gender, int caretakerID, int groupID){
+          this(age, address, phone, registrationdate, firstName, lastName, gender, caretakerID, groupID);
+          this.studentID = studentID;
+      }
       @Override
       public String toString(){
           return  "student: "+studentID+ age+ caretakerID+ getFirstName()+ getLastName()+ getGender();
@@ -45,7 +46,9 @@ public class Student extends Person {
         
     
         
-        
+        public int getGroupID(){
+            return groupID;
+        }
 	
 	public double getGpa() {
 		return gpa;
@@ -70,12 +73,6 @@ public class Student extends Person {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getRegistrationDate() {
-		return registrationdate;
-	}
-	public void setRegistrationDate(String registrationDate) {
-		this.registrationdate = registrationDate;
 	}
 	public int getStudentID() {
 		return studentID;

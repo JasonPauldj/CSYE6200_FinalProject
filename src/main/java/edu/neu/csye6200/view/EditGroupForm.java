@@ -4,17 +4,125 @@
  */
 package edu.neu.csye6200.view;
 
+import edu.neu.csye6200.objects.Group;
+import edu.neu.csye6200.objects.Student;
+import edu.neu.csye6200.services.AgeGroupService;
+import edu.neu.csye6200.services.StudentService;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jasonpauldarivemula
  */
 public class EditGroupForm extends javax.swing.JFrame {
 
+    private Group currentGroup;
+    private int selctedStudentId;
+    private final List<Student> students;
+    
     /**
      * Creates new form EditGroupForm
      */
-    public EditGroupForm() {
+    public EditGroupForm(int groupid) {
         initComponents();
+        currentGroup = AgeGroupService.fetchGroup(groupid);
+        students =StudentService.fetchStudentDataOfGroup(groupid);
+        addRowToJTable(students);
+        
+    }
+    
+    
+    public void addRowToJTable( List<Student> list)
+    {
+        
+        String[] colNames ={"Student Id",
+                                        "Age",
+                                        "First Name",
+                                        "Last Name",
+                                        "Gender",
+                                        "View"};
+        
+        Object rowData[] = new Object[colNames.length];
+        
+        tbl_students.setModel(new DefaultTableModel(colNames,0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                if(column==getColumnCount()-1)
+                return true;
+            return false; 
+            }
+        });
+        
+        tbl_students.addMouseListener(new ViewButtonMouseListener(tbl_students));
+        tbl_students.getColumn("View").setCellRenderer(new JTableButtonRenderer());
+        
+        DefaultTableModel model = (DefaultTableModel) tbl_students.getModel();
+        
+        
+        
+        
+//        = getAgeGroupsForClassRoom();
+       
+        for(int i = 0; i < list.size(); i++)
+        {
+            Student st = list.get(i);
+            rowData[0] = st.getId();
+            rowData[1] = st.getAge();
+            rowData[2] = st.getFirstName();
+            rowData[3] = st.getLastName();
+            rowData[4] = st.getGender();
+           
+            JButton btn = new JButton("View Caretaker Details");
+            btn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+//                    JDialog caretakerDialog = new JDialog(EditGroupForm.this,"Caretaker Details",true);
+//                    JPanel panel = new JPanel();
+//                    caretakerDialog.add(panel);
+//                    panel.add
+                    JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btn), "Caretaker name - " + st.getCaretakerID());
+                   
+                }
+            });
+            rowData[5] = btn;
+            model.addRow(rowData);
+            
+        }
+//        jTable1.setModel(model);
+    }
+    
+    private class ViewButtonMouseListener extends MouseAdapter {
+        private final JTable table;
+
+        public ViewButtonMouseListener(JTable table) {
+            this.table = table;
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            int column = table.getColumnModel().getColumnIndexAtX(e.getX()); // get the coloum of the button
+            int row    = e.getY()/table.getRowHeight(); //get the row of the button
+
+
+                    /*Checking the row or column is valid or not*/
+            if (row < table.getRowCount() && row >= 0 && column < table.getColumnCount() && column >= 0) {
+                Object value = table.getValueAt(row, column);
+                if (value instanceof JButton) {
+                    EditGroupForm.this.selctedStudentId=(Integer)table.getValueAt(row, 0);
+                    /*perform a click event*/
+                    ((JButton)value).doClick();
+                }
+            }
+        }
     }
 
     /**
@@ -28,11 +136,12 @@ public class EditGroupForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_students = new javax.swing.JTable();
+        btn_back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_students.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -51,15 +160,27 @@ public class EditGroupForm extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_students);
+
+        btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(btn_back)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -67,7 +188,9 @@ public class EditGroupForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_back)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,50 +203,60 @@ public class EditGroupForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        EditClassroomForm editClassroomForm = new EditClassroomForm(currentGroup.getClassroomId());
+        editClassroomForm.setVisible(true);
+        editClassroomForm.pack();
+        
+    }//GEN-LAST:event_btn_backActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EditGroupForm().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(EditGroupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new EditGroupForm().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_back;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl_students;
     // End of variables declaration//GEN-END:variables
 }

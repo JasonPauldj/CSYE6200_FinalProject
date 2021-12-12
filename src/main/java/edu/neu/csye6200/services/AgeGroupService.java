@@ -7,7 +7,10 @@ package edu.neu.csye6200.services;
 import edu.neu.csye6200.controller.DBConnection;
 import edu.neu.csye6200.objects.Group;
 import edu.neu.csye6200.objects.AgeGroupEnum;
+import edu.neu.csye6200.objects.CareTaker;
+import edu.neu.csye6200.objects.Student;
 import edu.neu.csye6200.objects.Teacher;
+import static edu.neu.csye6200.services.StudentService.arrangeStudentData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +27,7 @@ import java.util.logging.Logger;
  */
 public class AgeGroupService {
 
-    public int getAgeGroup(Connection con, int groupNo) {
+    public static int getAgeGroup(Connection con, int groupNo) {
         try {
             Statement stmt = con.createStatement();
 
@@ -39,6 +42,23 @@ public class AgeGroupService {
         }
 
         return -1;
+    }
+    
+    public static int groupAvailability(int age){
+         //return available groupID for student of a particular age, -1 if no vacant positions available
+        Connection con = DBConnection.getConnection();
+        return groupAvailability(con, age);
+    }
+    
+    public static int groupAvailability(Connection con, int age){
+        //return available groupID for student of a particular age, -1 if no vacant positions available
+        AgeGroupEnum ageGroup = AgeGroupEnum.whichAgeGroupForAge(age);
+        if(ageGroup == null)
+            return -1;
+        else{
+            return getAgeGroup(con, ageGroup.getAgeGroupId());
+        }
+             
     }
 
     public static void insertAgeGroup(int groupNo, int classroomId, int teacherId) {
@@ -96,7 +116,7 @@ public class AgeGroupService {
         return -1;
     }
     
-    public List<Group> getGroupListForClassRoom( int classroomNo){
+    public static List<Group> getGroupListForClassRoom( int classroomNo){
         Connection con = DBConnection.getConnection();
         if (con != null) {
             try {
@@ -118,6 +138,31 @@ public class AgeGroupService {
             }
         }
         return new ArrayList<Group>();
+    }
+    
+    public static Group fetchGroup(int groupid){
+       Connection con = DBConnection.getConnection();
+        Group grp = null;
+        if(con!=null){
+            try{
+                String query = "SELECT * FROM daycaredb.grps where id=? ;";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setInt(1, groupid);
+                
+                ResultSet rs =stmt.executeQuery();
+                 int cnt = 0;
+
+                while (rs.next() && cnt == 0) {
+                     grp = new Group(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5),rs.getInt(6));
+                    cnt++;
+                }
+                
+            }catch(SQLException e){
+                
+            }
+            
+        }
+        return grp;
     }
 
 }

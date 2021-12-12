@@ -31,13 +31,20 @@ public class StudentService {
         if(con!=null){
             try {
                 
-                String query = "insert into Student (firstname,lastname,age,gender,caretakerId) values (?,?,?,?,?)";
+//                String query = "insert into Student (firstname,lastname,age,gender,caretakerId,groupid) values (?,?,?,?,?,?)";
+                String query = "insert into Student "
+                        + "(age,address,phonenumber,registrationdate,firstname,lastname,gender,caretakerId,groupid) values "
+                        + "(?,?,?,?,?,?,?,?,?)";
                 PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-                stmt.setString(1,st.getFirstName());
-                stmt.setString(2,st.getLastName());
-                stmt.setInt(3, st.getAge());
-                stmt.setString(4, st.getGender());
-                stmt.setInt(5, st.getCaretakerID());
+                stmt.setInt(1,st.getAge());
+                stmt.setString(2,st.getAddress());
+                stmt.setString(3,st.getPhone());
+                stmt.setString(4, st.getRegistrationDate());
+                stmt.setString(5, st.getFirstName());
+                stmt.setString(6, st.getLastName());
+                stmt.setString(7, st.getGender());
+                stmt.setInt(8,st.getCaretakerID());
+                stmt.setInt(9,st.getGroupID());
                 
                 stmt.executeUpdate();  
                 
@@ -92,13 +99,35 @@ public class StudentService {
         }
         return studentList;
     }
-    
+    public static List<Student> fetchStudentDataOfGroup(int groupid){
+       
+        Connection con = DBConnection.getConnection();
+        List<Student> studentList = new ArrayList<>();
+        if(con!=null){
+            try{
+                String query = "SELECT * FROM daycaredb.Student where groupid=? ;";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setInt(1, groupid);
+                
+                ResultSet rs =stmt.executeQuery();
+                
+                studentList = arrangeStudentData(rs);
+                
+            }catch(SQLException e){
+                
+            }
+            
+        }
+        return studentList;
+    }
     public static List<Student> arrangeStudentData(ResultSet rs){
         List<Student> studentList = new ArrayList<>();
         try{
 //            ResultSetMetaData rsmd = rs.getMetaData();
             while(rs.next()){
-                Student s = new Student(rs.getInt("studentId"),rs.getInt("age"),rs.getInt("caretakerId"),rs.getString("firstname"),rs.getString("lastname"),rs.getString("gender"));
+                Student s = new Student(rs.getInt("studentId"),rs.getInt("age"),rs.getString("address"),rs.getString("phonenumber")
+                        ,rs.getString("registrationdate"), rs.getString("firstname"),rs.getString("lastname"),
+                        rs.getString("gender"),rs.getInt("caretakerId"),rs.getInt("groupid"));
                 studentList.add(s);
             }
             
