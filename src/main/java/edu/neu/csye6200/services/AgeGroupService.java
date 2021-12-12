@@ -40,6 +40,23 @@ public class AgeGroupService {
 
         return -1;
     }
+    
+    public int groupAvailability(int age){
+         //return available groupID for student of a particular age, -1 if no vacant positions available
+        Connection con = DBConnection.getConnection();
+        return groupAvailability(con, age);
+    }
+    
+    public int groupAvailability(Connection con, int age){
+        //return available groupID for student of a particular age, -1 if no vacant positions available
+        AgeGroupEnum ageGroup = AgeGroupEnum.whichAgeGroupForAge(age);
+        if(ageGroup == null)
+            return -1;
+        else{
+            return getAgeGroup(con, ageGroup.getAgeGroupId());
+        }
+             
+    }
 
     public static void insertAgeGroup(int groupNo, int classroomId, int teacherId) {
 
