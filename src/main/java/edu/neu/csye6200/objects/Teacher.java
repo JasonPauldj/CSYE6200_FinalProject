@@ -7,8 +7,8 @@ public class Teacher extends Person{
     private String reviewdate;
     //String 
 
-    public Teacher(String firstName, String lastName, String gender) {
-        super(firstName, lastName, gender);
+    public Teacher(String firstName, String lastName, String gender, String reviewdate) {
+        this(0, firstName, lastName, gender, reviewdate);
     }
 
     public Teacher(int agegroupId, String firstName, String lastName, String gender, String reviewdate) {
@@ -17,10 +17,6 @@ public class Teacher extends Person{
         this.reviewdate = reviewdate;
     }
     
-    public Teacher(int agegroupId, String firstName, String lastName, String gender) {
-        super(firstName, lastName, gender);
-        this.agegroupId = agegroupId;
-    }
     
     @Override
     public String toString(){
