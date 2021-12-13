@@ -197,7 +197,6 @@ public class NewStudentForm extends javax.swing.JFrame {
                     .addComponent(txt_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_lastName)
                     .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_studentLayout.createSequentialGroup()
                         .addGap(0, 84, Short.MAX_VALUE)
@@ -311,12 +310,11 @@ public class NewStudentForm extends javax.swing.JFrame {
                 .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_parentLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_parFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_parentLayout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addComponent(txt_parLastame, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_lastName1)))
+                        .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_parLastame, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_parFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_lastName1))))
                     .addGroup(panel_parentLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(lbl_parFirstName)))
@@ -470,7 +468,13 @@ public class NewStudentForm extends javax.swing.JFrame {
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         // TODO add your handling code here:
-        
+        int age = Integer.parseInt(txt_age.getText().trim());
+        int assignedGroupID = AgeGroupService.groupAvailability(age);
+        if(assignedGroupID == -1){
+            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
+            JOptionPane.showMessageDialog(NewStudentForm.this, "We couldn't find any available groups for the student.");
+            return;
+        }
         String parfirstName = txt_parFirstName.getText().trim();
         String parlastName = txt_parLastame.getText().trim();
         
@@ -487,12 +491,9 @@ public class NewStudentForm extends javax.swing.JFrame {
         else
             pargender="Female";
         
-        int age = Integer.parseInt(txt_age.getText().trim());
-        int assignedGroupID = AgeGroupService.groupAvailability(age);
-        if(assignedGroupID == -1){
-            // TO BE IMPLEMENTED. POP UP WINDOW MENTIONING THAT THERE IS NO SPACE FOR STUDENT IN ANY EXISTING GROUP
-            return;
-        }
+        
+        
+        
         
         CareTaker caretaker = new CareTaker(address,phone,parfirstName, parlastName, pargender);
         int caretakerId= CaretakerService.insertCaretaker(caretaker);
