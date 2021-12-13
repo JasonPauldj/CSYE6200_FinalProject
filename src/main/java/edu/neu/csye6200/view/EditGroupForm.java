@@ -28,7 +28,7 @@ public class EditGroupForm extends javax.swing.JFrame {
 
     private Group currentGroup;
     private int selctedStudentId;
-    private final List<Student> students;
+    private  List<Student> students;
     
     /**
      * Creates new form EditGroupForm

@@ -6,7 +6,14 @@ package edu.neu.csye6200.view;
 
 import edu.neu.csye6200.objects.Student;
 import edu.neu.csye6200.services.StudentService;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,26 +27,81 @@ public class EnrolledStudentsDisplay1 extends javax.swing.JFrame {
      */
     public EnrolledStudentsDisplay1() {
         initComponents();
-        List<Student> temp=StudentService.fetchStudentData();
+        List<Student> temp = StudentService.fetchStudentData();
         addRowToJTable1(temp);
     }
-    public void addRowToJTable1( List<Student> list)
-    {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object rowData[] = new Object[10];
-        for(int i = 0; i < list.size(); i++)
-        {
-            rowData[0] = list.get(i).getStudentID();
-            rowData[1] = list.get(i).getAge();
-            rowData[2] = list.get(i).getAddress();
-            rowData[3] = list.get(i).getPhone();
-            rowData[4]= list.get(i).getRegistrationDate();
-            rowData[5]= list.get(i).getFirstName();
-            rowData[6]= list.get(i).getLastName();
-            rowData[7]= list.get(i).getGender();
-            rowData[8]= list.get(i).getCaretakerID();
-            rowData[9]= list.get(i).getId();
+
+    public void addRowToJTable1(List<Student> list) {
+        String[] colNames = {"Student Id",
+            "First Name",
+            "Last Name",
+            "Age",
+            "Phone No",
+            "Gender",
+            "Address",
+            "View"};
+        
+        Object rowData[] = new Object[colNames.length];
+        
+//         jTable1.setModel(new DefaultTableModel(colNames,0) {
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+//                if(column==getColumnCount()-1)
+//                return true;
+//            return false; 
+//            }
+//        });
+         jTable1.addMouseListener(new EnrolledStudentsDisplay1.ViewButtonMouseListener(jTable1));
+         jTable1.getColumn("View Vaccinations").setCellRenderer(new JTableButtonRenderer());
+         
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         
+        for (int i = 0; i < list.size(); i++) {
+            Student st = list.get(i);
+            
+            rowData[0] = st.getStudentID();
+            rowData[1] = st.getFirstName();
+            rowData[2] = st.getLastName();
+            rowData[3] = st.getAge();
+            rowData[4] = st.getPhone();
+            rowData[5] = st.getGender();
+            rowData[6] = st.getAddress();
+            
+            JButton btn = new JButton("View Vaccination Details");
+            btn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                  
+                   EnrolledStudentsDisplay1.this.dispose();
+                    ViewVaccinationsForm vcf = new ViewVaccinationsForm(st.getStudentID());
+                    vcf.setVisible(true);
+                }
+            });  
+            rowData[7] = btn;
             model.addRow(rowData);
+        }
+    }
+    
+    private class ViewButtonMouseListener extends MouseAdapter {
+        private final JTable table;
+
+        public ViewButtonMouseListener(JTable table) {
+            this.table = table;
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            int column = table.getColumnModel().getColumnIndexAtX(e.getX()); // get the coloum of the button
+            int row    = e.getY()/table.getRowHeight(); //get the row of the button
+
+
+                    /*Checking the row or column is valid or not*/
+            if (row < table.getRowCount() && row >= 0 && column < table.getColumnCount() && column >= 0) {
+                Object value = table.getValueAt(row, column);
+                if (value instanceof JButton) {
+                    /*perform a click event*/
+                    ((JButton)value).doClick();
+                }
+            }
         }
     }
 
@@ -65,9 +127,17 @@ public class EnrolledStudentsDisplay1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "StudentId", "Age", "Address", "Phone Number", "Registration Id", "First Name", "Last Name", "Gender", "Caretaker Id", "GroupId"
+                "Student Id", "First Name", "Last Name", "Age", "Phone", "Gender", "Address", "View Vaccinations"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         back_EnrolledStudents.setText("Back");
