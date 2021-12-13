@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +27,7 @@ public class ViewVaccinationsForm extends javax.swing.JFrame {
      */
     public ViewVaccinationsForm() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     public ViewVaccinationsForm(int studentId){

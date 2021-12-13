@@ -9,6 +9,7 @@ import edu.neu.csye6200.objects.Teacher;
 import edu.neu.csye6200.services.TeacherService;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
@@ -22,6 +23,7 @@ public class NewTeacherForm extends javax.swing.JFrame {
      */
     public NewTeacherForm() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,6 +39,11 @@ public class NewTeacherForm extends javax.swing.JFrame {
         panel_Title = new javax.swing.JPanel();
         lbl_Title = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         panel_teacherForm = new javax.swing.JPanel();
         lbl_firstName = new javax.swing.JLabel();
         txt_firstName = new javax.swing.JTextField();
@@ -52,14 +59,14 @@ public class NewTeacherForm extends javax.swing.JFrame {
         Date = new javax.swing.JLabel();
         btn_add = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1168, 687));
 
+        panel_Title.setBackground(new java.awt.Color(245, 217, 213));
         panel_Title.setPreferredSize(new java.awt.Dimension(1168, 709));
 
+        lbl_Title.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         lbl_Title.setText("NORTHEASTERN ");
         lbl_Title.setToolTipText("");
 
@@ -72,194 +79,52 @@ public class NewTeacherForm extends javax.swing.JFrame {
             }
         });
 
-        lbl_firstName.setText("First Name :");
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/jasonpauldarivemula/NetBeansProjects/daycare/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png")); // NOI18N
+        jLabel4.setText("Main Logo");
 
-        txt_firstName.setPreferredSize(new java.awt.Dimension(10, 25));
-        txt_firstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_firstNameActionPerformed(evt);
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
+        jLabel5.setText("DAYCARE");
 
-        lbl_lastName.setText("Last Name :");
-
-        txt_lastName.setPreferredSize(new java.awt.Dimension(10, 25));
-        txt_lastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_lastNameActionPerformed(evt);
-            }
-        });
-
-        lbl_gender.setText("Gender :");
-
-        buttonGroup1.add(radBtn_male);
-        radBtn_male.setText("Male");
-        radBtn_male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radBtn_maleActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(radBtn_female);
-        radBtn_female.setText("Female");
-
-        buttonGroup1.add(radbtn_Others);
-        radbtn_Others.setText("Other");
-        radbtn_Others.setToolTipText("");
-        radbtn_Others.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radbtn_OthersActionPerformed(evt);
-            }
-        });
-
-        combo_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December" }));
-        combo_month.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_monthActionPerformed(evt);
-            }
-        });
-
-        combo_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        combo_day.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_dayActionPerformed(evt);
-            }
-        });
-
-        combo_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-        combo_year.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_yearActionPerformed(evt);
-            }
-        });
-
-        Date.setText("Date");
-        Date.setToolTipText("");
-
-        btn_add.setBackground(new java.awt.Color(51, 153, 255));
-        btn_add.setText("Add Teacher");
-        btn_add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("ADD NEW TEACHER");
-
-        javax.swing.GroupLayout panel_teacherFormLayout = new javax.swing.GroupLayout(panel_teacherForm);
-        panel_teacherForm.setLayout(panel_teacherFormLayout);
-        panel_teacherFormLayout.setHorizontalGroup(
-            panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addComponent(lbl_firstName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                                .addComponent(radBtn_male)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(radBtn_female)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radbtn_Others)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_teacherFormLayout.createSequentialGroup()
-                                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                                        .addComponent(txt_firstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbl_lastName))
-                                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                                        .addComponent(btn_add)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
-                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addComponent(Date)
-                        .addGap(47, 47, 47)
-                        .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addComponent(lbl_gender)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                .addGap(478, 478, 478)
-                .addComponent(jLabel1)
-                .addGap(0, 555, Short.MAX_VALUE))
-        );
-        panel_teacherFormLayout.setVerticalGroup(
-            panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(19, 19, 19)
-                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_firstName)
-                    .addComponent(lbl_lastName)
-                    .addComponent(txt_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radBtn_male)
-                    .addComponent(radBtn_female)
-                    .addComponent(radbtn_Others))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                .addComponent(lbl_gender)
-                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Date)
-                            .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(78, 78, 78))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_teacherFormLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))))
-        );
-
-        jLabel3.setText("DAYCARE");
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/jasonpauldarivemula/NetBeansProjects/daycare/src/main/java/edu/neu/csye6200/view/resources/c.jpeg")); // NOI18N
+        jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
         panel_Title.setLayout(panel_TitleLayout);
         panel_TitleLayout.setHorizontalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_TitleLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(268, 268, 268))
             .addGroup(panel_TitleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_TitleLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_TitleLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbl_Title)
-                        .addGap(201, 201, 201))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_TitleLayout.createSequentialGroup()
-                        .addComponent(panel_teacherForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addGroup(panel_TitleLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_Title)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77))))
         );
         panel_TitleLayout.setVerticalGroup(
             panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_TitleLayout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_Title)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panel_teacherForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(panel_TitleLayout.createSequentialGroup()
+                        .addComponent(lbl_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
+
+        jPanel1.setBackground(new java.awt.Color(245, 217, 213));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel2.setText("Instructions");
@@ -271,32 +136,191 @@ public class NewTeacherForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2)
-                .addContainerGap(1005, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel2)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        panel_teacherForm.setBackground(new java.awt.Color(245, 217, 213));
+
+        lbl_firstName.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_firstName.setText("First Name :");
+
+        txt_firstName.setPreferredSize(new java.awt.Dimension(10, 25));
+        txt_firstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_firstNameActionPerformed(evt);
+            }
+        });
+
+        lbl_lastName.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_lastName.setText("Last Name :");
+
+        txt_lastName.setPreferredSize(new java.awt.Dimension(10, 25));
+        txt_lastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_lastNameActionPerformed(evt);
+            }
+        });
+
+        lbl_gender.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        lbl_gender.setText("Gender :");
+
+        buttonGroup1.add(radBtn_male);
+        radBtn_male.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        radBtn_male.setText("Male");
+        radBtn_male.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radBtn_maleActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(radBtn_female);
+        radBtn_female.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        radBtn_female.setText("Female");
+
+        buttonGroup1.add(radbtn_Others);
+        radbtn_Others.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        radbtn_Others.setText("Other");
+        radbtn_Others.setToolTipText("");
+        radbtn_Others.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radbtn_OthersActionPerformed(evt);
+            }
+        });
+
+        combo_month.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        combo_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December" }));
+        combo_month.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_monthActionPerformed(evt);
+            }
+        });
+
+        combo_day.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        combo_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        combo_day.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_dayActionPerformed(evt);
+            }
+        });
+
+        combo_year.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        combo_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        combo_year.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_yearActionPerformed(evt);
+            }
+        });
+
+        Date.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        Date.setText("Date");
+        Date.setToolTipText("");
+
+        btn_add.setBackground(new java.awt.Color(51, 153, 255));
+        btn_add.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add.setText("Add Teacher");
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel1.setText("ADD NEW TEACHER");
+
+        javax.swing.GroupLayout panel_teacherFormLayout = new javax.swing.GroupLayout(panel_teacherForm);
+        panel_teacherForm.setLayout(panel_teacherFormLayout);
+        panel_teacherFormLayout.setHorizontalGroup(
+            panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                        .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_add)
+                            .addComponent(jLabel1)
+                            .addComponent(lbl_gender))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                        .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Date)
+                            .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                                .addComponent(lbl_firstName)
+                                .addGap(34, 34, 34)
+                                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                                        .addComponent(txt_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(lbl_lastName)
+                                        .addGap(85, 85, 85)
+                                        .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                                        .addComponent(radBtn_male)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radBtn_female)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(radbtn_Others))
+                                    .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                                        .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(262, Short.MAX_VALUE))))
+        );
+        panel_teacherFormLayout.setVerticalGroup(
+            panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_teacherFormLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_firstName)
+                    .addComponent(txt_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_lastName)
+                    .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_gender)
+                    .addComponent(radBtn_male)
+                    .addComponent(radBtn_female)
+                    .addComponent(radbtn_Others))
+                .addGap(28, 28, 28)
+                .addGroup(panel_teacherFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Date)
+                    .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panel_teacherForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_Title, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1451, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(panel_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel_teacherForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -437,6 +461,8 @@ public class NewTeacherForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_Title;
     private javax.swing.JLabel lbl_firstName;

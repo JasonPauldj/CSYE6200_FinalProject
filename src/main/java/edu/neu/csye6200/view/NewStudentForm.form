@@ -580,7 +580,7 @@
         <Component class="javax.swing.JLabel" name="lbl_Logo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/Users/namrataruchandani/Desktop/CSYE6200/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png"/>
+              <Image iconType="2" name="/Users/jasonpauldarivemula/NetBeansProjects/daycare/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Logo"/>
           </Properties>
@@ -603,11 +603,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/Users/namrataruchandani/Desktop/CSYE6200/src/main/java/edu/neu/csye6200/view/resources/WhatsApp Image 2021-12-12 at 5.12.02 PM-2.jpg"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
