@@ -6,7 +6,9 @@ package edu.neu.csye6200.view;
 
 import edu.neu.csye6200.objects.Group;
 import edu.neu.csye6200.objects.AgeGroupEnum;
+import edu.neu.csye6200.objects.ClassRoom;
 import edu.neu.csye6200.services.AgeGroupService;
+import edu.neu.csye6200.services.ClassroomService;
 import edu.neu.csye6200.services.TeacherService;
 import java.awt.Color;
 import java.awt.Component;
@@ -42,12 +44,20 @@ public class EditClassroomForm extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.classroomId = classroomId;
+        
+        
+        
        List<Group> list =  getGroupsForClassRoom(classroomId);
        if(!list.isEmpty()){
            this.ageGroupId = list.get(0).getAgeGroupId();
        }
+       else
+       {
+           ClassRoom ct = ClassroomService.fetchClassRoomUsingId(classroomId);
+           this.ageGroupId = ct.getAgeGroup().getAgeGroupId();
+       }
            
-       if(this.ageGroupId!=0 && list.size() > AgeGroupEnum.getAgeGroupEnum(ageGroupId).getAgeGroupId()){
+       if(this.ageGroupId!=0 && list.size() >= AgeGroupEnum.getAgeGroupEnum(ageGroupId).getMaxGroupsPerRoom()){
            btn_createAgeGroup.setEnabled(false);
        }
        

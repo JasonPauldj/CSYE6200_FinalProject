@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,6 +59,34 @@ public class TeacherService {
         return -1;
         
     }
+     public static List<Teacher> getTeacherAnniversary(){
+        List<Teacher> imunizationList = new ArrayList<Teacher>();
+        try{
+        Connection con = DBConnection.getConnection();
+        Calendar calendarEnd=Calendar.getInstance();
+//        System.out.println(new Date(calendarEnd));
+        System.out.println(calendarEnd.get(Calendar.MONTH));
+         // You can substract from the current Year to get the previous year last dates.
+         calendarEnd.set(Calendar.YEAR,calendarEnd.get(Calendar.YEAR)-1);
+
+         String endDateStr = calendarEnd.get(Calendar.YEAR)+"-"+(calendarEnd.get(Calendar.MONTH)+1)+"-"+calendarEnd.get(Calendar.DAY_OF_MONTH);
+         
+          System.out.println(endDateStr);
+      
+       Statement stmt = con.createStatement();
+       
+       ResultSet rs =  stmt.executeQuery(String.format("Select * from Teacher where lastreviewdate=\"%s\"",endDateStr));
+//       List<String> list = new ArrayList<String>();
+       while(rs.next()) {
+            imunizationList.add(new Teacher(Integer.parseInt(rs.getString("agegroupId")), rs.getString("firstname"), rs.getString("lastname"), rs.getString("gender"), rs.getString("lastreviewdate")));
+       }
+       System.out.println(imunizationList);
+        } catch( SQLException ex){
+            System.out.println(ex.getMessage());
+            return new ArrayList<Teacher>();
+        }
+       return imunizationList;
+	}
      
      public static List<Teacher> getUnassignedTeachers(){
         Connection con = DBConnection.getConnection();
@@ -65,7 +94,7 @@ public class TeacherService {
         if(con!=null){
             try {
                 
-                String query = "Select * from Teacher where agegroupId is null";
+                String query = "Select * from Teacher where agegroupId=0";
                 PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 //                stmt.setString(1,t.getFirstNamxe());
                
