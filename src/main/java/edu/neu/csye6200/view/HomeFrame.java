@@ -34,7 +34,6 @@ public class HomeFrame extends javax.swing.JFrame {
         lbl_Title = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_Immunization = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         panel_HomeBtns = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -96,19 +95,14 @@ public class HomeFrame extends javax.swing.JFrame {
                         .addGap(241, 241, 241)
                         .addComponent(jLabel2))
                     .addGroup(panel_TitleLayout.createSequentialGroup()
-                        .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_TitleLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel8))
-                            .addGroup(panel_TitleLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel12)))
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_Title)
                             .addGroup(panel_TitleLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 497, Short.MAX_VALUE)
                                 .addComponent(btn_Immunization, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(20, 20, 20))
         );
@@ -123,9 +117,7 @@ public class HomeFrame extends javax.swing.JFrame {
                     .addGroup(panel_TitleLayout.createSequentialGroup()
                         .addComponent(lbl_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel3))
+                        .addComponent(jLabel3)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel_TitleLayout.createSequentialGroup()
                         .addGroup(panel_TitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -438,6 +430,9 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        EmployeeAnniversary ea = new EmployeeAnniversary();
+        ea.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -532,7 +527,6 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
