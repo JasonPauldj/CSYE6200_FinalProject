@@ -8,7 +8,9 @@ import edu.neu.csye6200.objects.Group;
 import edu.neu.csye6200.objects.AgeGroupEnum;
 import edu.neu.csye6200.services.AgeGroupService;
 import edu.neu.csye6200.services.TeacherService;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -332,6 +334,8 @@ public class EditClassroomForm extends javax.swing.JFrame {
             rowData[5] = list.get(i).getTeacherId();
 
             JButton btn1 = new JButton("Edit");
+            //btn1.setPreferredSize(new Dimension(120,30));
+            btn1.setBackground(new Color(51,153,255));
             btn1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
