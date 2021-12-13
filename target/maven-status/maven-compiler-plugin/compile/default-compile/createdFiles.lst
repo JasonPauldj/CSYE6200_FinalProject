@@ -30,6 +30,7 @@ edu/neu/csye6200/view/NewClassroomForm$3.class
 edu/neu/csye6200/objects/Teacher.class
 edu/neu/csye6200/view/NewStudentForm$5.class
 edu/neu/csye6200/view/NewClassroomForm.class
+edu/neu/csye6200/view/ViewCaretakerForm$1.class
 edu/neu/csye6200/view/EmployedTeacherDisplay.class
 edu/neu/csye6200/services/CaretakerService.class
 edu/neu/csye6200/services/FetchData.class
@@ -82,3 +83,4 @@ edu/neu/csye6200/view/HomeFrame$2.class
 edu/neu/csye6200/view/AgeGroupForm.class
 edu/neu/csye6200/view/NewStudentForm$3.class
 edu/neu/csye6200/services/Authenticate.class
+edu/neu/csye6200/view/ViewCaretakerForm.class

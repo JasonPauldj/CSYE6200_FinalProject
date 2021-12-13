@@ -321,26 +321,27 @@ public class NewTeacherForm extends javax.swing.JFrame {
         String firstName = txt_firstName.getText().trim();
         String lastName = txt_lastName.getText().trim();
         
-        String group = (String)jCb_agegroup.getSelectedItem();
-        AgeGroupEnum selectedGroup=null;
-        
-        for(AgeGroupEnum ageGroup : AgeGroupEnum.values())
-        {
-            if(group.equals(ageGroup.getAgeGroupName())){
-                selectedGroup=ageGroup;
-                break;
-            }
-        }
-        int groupId = selectedGroup.getAgeGroupId();
+//        String group = (String)jCb_agegroup.getSelectedItem();
+//        AgeGroupEnum selectedGroup=null;
+//        
+//        for(AgeGroupEnum ageGroup : AgeGroupEnum.values())
+//        {
+//            if(group.equals(ageGroup.getAgeGroupName())){
+//                selectedGroup=ageGroup;
+//                break;
+//            }
+//        }
+//        int groupId = selectedGroup.getAgeGroupId();
         
         String gender="";
-        String registrationdate;
+        String reviewdate;
         
         String day="";String month="";String year="";
-       // month=combo_month.
-       //day=combo_month.
+        month = (String)combo_month.getSelectedItem();
+       day = (String)combo_day.getSelectedItem();
        //year=combo_year.
-        registrationdate=day+month+year;
+//        reviewdate = day + "-" + month + "-" + year;
+        reviewdate = month + " " + day;
         
         
         if(radBtn_male.isSelected())
@@ -350,7 +351,7 @@ public class NewTeacherForm extends javax.swing.JFrame {
         else
             gender="Female";
         
-        Teacher t = new Teacher(groupId,firstName,lastName,gender,registrationdate);
+        Teacher t = new Teacher(firstName,lastName,gender,reviewdate);
         
         int teacherId = TeacherService.insertTeacher(t);
         
