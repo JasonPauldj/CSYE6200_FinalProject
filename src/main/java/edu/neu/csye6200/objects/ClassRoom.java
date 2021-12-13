@@ -94,5 +94,9 @@ public class ClassRoom {
     public void setGroupAvailableCapacity(int groupAvailableCapacity) {
         this.groupAvailableCapacity = groupAvailableCapacity;
     }
+    public int getClassroomId() {
+        return classRoomId ;
+    }
+    
 
 }
