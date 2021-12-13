@@ -520,7 +520,7 @@ public class NewStudentForm extends javax.swing.JFrame {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
         LocalDateTime now = LocalDateTime.now();  
         String registrationDate = dtf.format(now);  
-        System.out.println(registrationDate);
+//        System.out.println(registrationDate);
         
         Student st = new Student(age, address, phone, registrationDate, firstName,lastName, gender,caretakerId,assignedGroupID);
         

@@ -64,22 +64,22 @@ public class ClassroomService {
     }
     
     public static List<ClassRoom> fetchClassRooms(Connection con){
-        List<ClassRoom> studentList = new ArrayList<>();
+        List<ClassRoom> classroomList = new ArrayList<>();
         if(con!=null){
             
-                String query = "SELECT * FROM daycaredb.Student;";
+                String query = "SELECT * FROM daycaredb.classroom;";
                 ResultSet rs = FetchData.SelectQuery(con, query);
-                studentList = arrangeClassRoomData(rs);
+                classroomList = arrangeClassRoomData(rs);
                 
 //                ResultSetMetaData rsmd = rs.getMetaData();
                 
             
         }
-        return studentList;
+        return classroomList;
     }
     
     public static List<ClassRoom> arrangeClassRoomData(ResultSet rs){
-        List<ClassRoom> studentList = new ArrayList<>();
+        List<ClassRoom> classroomList = new ArrayList<>();
         try{
 //            ResultSetMetaData rsmd = rs.getMetaData();
             while(rs.next()){
@@ -96,7 +96,7 @@ public class ClassroomService {
                 }
                 int groupAvailableCapacity = rs.getInt("grpcapacity");
                 ClassRoom s = new ClassRoom(classRoomId, capacity, ageGroup, studentsList, teacherList, groups, sectionName, groupAvailableCapacity);
-                studentList.add(s);
+                classroomList.add(s);
             }
             
             
@@ -104,6 +104,6 @@ public class ClassroomService {
                 Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
-        return studentList;
+        return classroomList;
     }
 }
