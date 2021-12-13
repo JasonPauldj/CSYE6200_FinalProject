@@ -84,7 +84,6 @@ public class ClassroomService {
 //            ResultSetMetaData rsmd = rs.getMetaData();
             while(rs.next()){
                 int classRoomId = rs.getInt("id");
-                int groupAvailableCapacity = rs.getInt("grpcapacity");
                 AgeGroupEnum ageGroup = AgeGroupEnum.getAgeGroupEnum(rs.getInt("agegroupid"));
                 int capacity = ageGroup.getMaxGroupsPerRoom();
                 String sectionName = rs.getString("sectionName");
@@ -95,9 +94,8 @@ public class ClassroomService {
                     teacherList.add(TeacherService.getTeacherFromTeacherId(group.getTeacherId()));
                     studentsList.addAll(StudentService.fetchStudentDataOfGroup(group.getGroupId()));
                 }
-                
-                
-                ClassRoom s = new ClassRoom(rs.getInt("studentId"),rs.getInt("age"),rs.getString("address"));
+                int groupAvailableCapacity = rs.getInt("grpcapacity");
+                ClassRoom s = new ClassRoom(classRoomId, capacity, ageGroup, studentsList, teacherList, groups, sectionName, groupAvailableCapacity);
                 studentList.add(s);
             }
             
