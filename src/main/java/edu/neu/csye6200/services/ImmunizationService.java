@@ -59,20 +59,16 @@ public class ImmunizationService {
        return imunizationList;
 	}
 
-	public void insertImmunizationRecord(Student st, Connection con) throws SQLException {
-
-//		List<Immunization> imunizationList = st.getImmunizationList();
-//		Statement stmt = con.createStatement();
-//                //TODO: Check this logic 
-//		for (Immunization im : imunizationList) {
-//			Calendar endDate = Calendar.getInstance();
-//                        endDate.setTime(im.getDatesOfVaccination().get(im.getDatesOfVaccination().size()-1));
-//			String endDateStr = endDate.get(Calendar.YEAR)+"-"+endDate.get(Calendar.MONTH)+"-"+endDate.get(Calendar.DAY_OF_MONTH);
-//			String str = String.format("insert into Immunization values(\"%s\",\"%s\",\"%s\",%s)",
-//					im.getVaccineName(), String.valueOf(st.getStudentID()),endDateStr,String.valueOf(im.getFrequency()));
-//			System.out.println(str);
-//			stmt.executeUpdate(str);
-//		}
+	public static void insertImmunizationRecord(Immunization im ) throws SQLException {
+                Connection con = DBConnection.getConnection();
+		Statement stmt = con.createStatement();
+                String endDateStr = im.getDatesOfVaccination();
+                String str = String.format("insert into Immunization values(\"%s\",\"%s\",\"%s\",%s)",
+					im.getVaccineName(), String.valueOf(im.getStudentId()),endDateStr,String.valueOf(im.getFrequency()));
+                //TODO: Check this logic 
+		
+			stmt.executeUpdate(str);
+		
 	}
 
     public boolean getImmunizationAlerts(Connection con) {

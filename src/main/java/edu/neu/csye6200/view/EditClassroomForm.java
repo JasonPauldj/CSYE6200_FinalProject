@@ -7,6 +7,7 @@ package edu.neu.csye6200.view;
 import edu.neu.csye6200.objects.Group;
 import edu.neu.csye6200.objects.AgeGroupEnum;
 import edu.neu.csye6200.services.AgeGroupService;
+import edu.neu.csye6200.services.TeacherService;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -219,17 +220,26 @@ public class EditClassroomForm extends javax.swing.JFrame {
 
     private void btn_createAgeGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createAgeGroupActionPerformed
         // TODO add your handling code here:
+         if(TeacherService.getUnassignedTeachers().isEmpty()){
+        
+            JOptionPane.showMessageDialog(this, "No teachers are avaialable to create a new group.");
+        }
+        else{
         this.dispose();
         AgeGroupForm agf = new AgeGroupForm(this.classroomId,this.ageGroupId);
         agf.setVisible(true);
+         }
     }//GEN-LAST:event_btn_createAgeGroupActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+       
         this.dispose();
         HomeFrame homeframe = new HomeFrame();
         homeframe.setVisible(true);
         homeframe.pack();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

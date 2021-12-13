@@ -56,6 +56,9 @@ public enum AgeGroupEnum {
     public int getMaxLimitInMonths(){
         return maxLimitInMonths;
     }
+    public int getMaxGroupsPerRoom(){
+        return maxGroupsPerRoom;
+    }
     
     public static AgeGroupEnum getAgeGroupEnum(int ageGroupId){
         for(AgeGroupEnum ageGroup : AgeGroupEnum.values())
