@@ -15,6 +15,11 @@ public class Immunization {
         this.frequency = frequency;
         this.studentId = studentId;
     }
+    
+    public Immunization(String vaccineName, String dateOfVaccination){
+    this.vaccineName = vaccineName;
+        this.dateOfVaccination = dateOfVaccination;
+    }
 
     public Immunization() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

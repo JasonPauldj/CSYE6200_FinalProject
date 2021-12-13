@@ -5,9 +5,11 @@
 package edu.neu.csye6200.services;
 
 import edu.neu.csye6200.controller.DBConnection;
+import edu.neu.csye6200.objects.Group;
 import edu.neu.csye6200.objects.Immunization;
 import edu.neu.csye6200.objects.Student;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,6 +73,32 @@ public class ImmunizationService {
 
     public boolean getImmunizationAlerts(Connection con) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    public static List<Immunization> getImmunizationOfStudent(int studentID){
+        List<Immunization> imunizationList = new ArrayList<Immunization>();
+        Connection con = DBConnection.getConnection();
+        if (con != null) {
+            try {
+                String query = "Select * from Immunization where studentId= ?";
+                PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                //stmt.setString(1,String.valueOf(classroomNo));
+                stmt.setInt(1,studentID);
+                ResultSet rs = stmt.executeQuery();
+                 List<Immunization> list = new ArrayList<Immunization>();
+                while(rs.next()){
+                    Immunization im = new Immunization(rs.getString(1),rs.getString(3));
+                    list.add(im);
+                }
+                  System.out.println(list);
+                return list;
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
+                return new ArrayList<Immunization>();
+            }
+        }
+        return new ArrayList<Immunization>();
+        
     }
     
 }
