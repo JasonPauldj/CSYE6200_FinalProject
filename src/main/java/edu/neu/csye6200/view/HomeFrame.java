@@ -295,7 +295,6 @@ public class HomeFrame extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(245, 217, 213));
 
         txt_classroomId.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        txt_classroomId.setText("Enter Classroom Id");
         txt_classroomId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_classroomIdActionPerformed(evt);
@@ -326,7 +325,7 @@ public class HomeFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txt_classroomId, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 400, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 404, Short.MAX_VALUE)
                         .addComponent(btn_editclassroom, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))))
         );
