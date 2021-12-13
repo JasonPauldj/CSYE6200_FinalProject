@@ -7,6 +7,7 @@ package edu.neu.csye6200.view;
 import edu.neu.csye6200.objects.AgeGroupEnum;
 import edu.neu.csye6200.objects.ClassRoom;
 import edu.neu.csye6200.services.ClassroomService;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
      */
     public NewClassroomForm() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -49,7 +51,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
 
         panel_Title.setBackground(new java.awt.Color(245, 217, 213));
 
-        lbl_Title.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        lbl_Title.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         lbl_Title.setText("NORTHEASTERN");
         lbl_Title.setToolTipText("");
 
@@ -63,7 +65,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         jLabel3.setText("DAYCARE");
 
         jLabel4.setIcon(new javax.swing.ImageIcon("/Users/jasonpauldarivemula/NetBeansProjects/daycare/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png")); // NOI18N
@@ -87,7 +89,7 @@ public class NewClassroomForm extends javax.swing.JFrame {
                             .addComponent(lbl_Title)
                             .addGroup(panel_TitleLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                                 .addComponent(jLabel6)))))
                 .addGap(66, 66, 66))
         );

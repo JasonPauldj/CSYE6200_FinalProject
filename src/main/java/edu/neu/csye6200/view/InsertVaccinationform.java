@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,6 +33,7 @@ public class InsertVaccinationform extends javax.swing.JFrame {
      */
     public InsertVaccinationform() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         List<Student> list = StudentService.fetchStudentData();
         addRowToJTable(list);
     }

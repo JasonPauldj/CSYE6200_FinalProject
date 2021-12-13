@@ -8,6 +8,7 @@ import edu.neu.csye6200.objects.CareTaker;
 import edu.neu.csye6200.objects.Teacher;
 import edu.neu.csye6200.services.CaretakerService;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +22,7 @@ public class ViewCaretakerForm extends javax.swing.JFrame {
      */
     public ViewCaretakerForm() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         List<CareTaker> caretakers = CaretakerService.getCaretakers();
         addRowToJTable(caretakers);
     }

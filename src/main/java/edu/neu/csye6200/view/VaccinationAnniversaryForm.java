@@ -7,6 +7,7 @@ package edu.neu.csye6200.view;
 import edu.neu.csye6200.objects.Immunization;
 import edu.neu.csye6200.services.ImmunizationService;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,6 +21,7 @@ public class VaccinationAnniversaryForm extends javax.swing.JFrame {
      */
     public VaccinationAnniversaryForm() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         List<Immunization> list = ImmunizationService.getImmunizationAlerts();
         addRowToJTable(list);
     }

@@ -4,6 +4,7 @@
  */
 package edu.neu.csye6200.view;
 
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
@@ -17,6 +18,7 @@ public class HomeFrame extends javax.swing.JFrame {
      */
     public HomeFrame() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -80,6 +82,8 @@ public class HomeFrame extends javax.swing.JFrame {
                 btn_ImmunizationActionPerformed(evt);
             }
         });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("/Users/jasonpauldarivemula/NetBeansProjects/daycare/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png")); // NOI18N
 
         javax.swing.GroupLayout panel_TitleLayout = new javax.swing.GroupLayout(panel_Title);
         panel_Title.setLayout(panel_TitleLayout);
@@ -430,6 +434,7 @@ public class HomeFrame extends javax.swing.JFrame {
         this.dispose();
         EnrolledStudentsDisplay1 display = new EnrolledStudentsDisplay1();
         display.setVisible(true);
+        display.pack();
     }//GEN-LAST:event_display_student_1ActionPerformed
 
     private void display_teacher_employeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_display_teacher_employeedActionPerformed

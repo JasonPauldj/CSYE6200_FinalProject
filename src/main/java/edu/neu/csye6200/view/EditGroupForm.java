@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -35,6 +36,7 @@ public class EditGroupForm extends javax.swing.JFrame {
      */
     public EditGroupForm(int groupid) {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         currentGroup = AgeGroupService.fetchGroup(groupid);
         students =StudentService.fetchStudentDataOfGroup(groupid);
         addRowToJTable(students);

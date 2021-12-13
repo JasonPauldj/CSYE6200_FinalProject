@@ -197,7 +197,6 @@ public class NewStudentForm extends javax.swing.JFrame {
                     .addComponent(txt_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_lastName)
                     .addComponent(txt_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(panel_studentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_studentLayout.createSequentialGroup()
                         .addGap(0, 84, Short.MAX_VALUE)
@@ -311,12 +310,11 @@ public class NewStudentForm extends javax.swing.JFrame {
                 .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_parentLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_parFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_parentLayout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addComponent(txt_parLastame, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbl_lastName1)))
+                        .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_parLastame, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_parFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_lastName1))))
                     .addGroup(panel_parentLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(lbl_parFirstName)))
@@ -346,7 +344,7 @@ public class NewStudentForm extends javax.swing.JFrame {
             }
         });
 
-        lbl_Logo.setIcon(new javax.swing.ImageIcon("/Users/namrataruchandani/Desktop/CSYE6200/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png")); // NOI18N
+        lbl_Logo.setIcon(new javax.swing.ImageIcon("/Users/jasonpauldarivemula/NetBeansProjects/daycare/src/main/java/edu/neu/csye6200/view/resources/mainlogo.png")); // NOI18N
         lbl_Logo.setText("Logo");
 
         lbl_Title.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
@@ -355,8 +353,6 @@ public class NewStudentForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
         jLabel1.setText("DAYCARE");
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/namrataruchandani/Desktop/CSYE6200/src/main/java/edu/neu/csye6200/view/resources/WhatsApp Image 2021-12-12 at 5.12.02 PM-2.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

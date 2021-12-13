@@ -7,6 +7,7 @@ package edu.neu.csye6200.view;
 import edu.neu.csye6200.objects.Teacher;
 import edu.neu.csye6200.services.TeacherService;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +22,7 @@ public class EmployedTeacherDisplay extends javax.swing.JFrame {
     public EmployedTeacherDisplay() {
         
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         List<Teacher>temp=TeacherService.getTeachers();
         addRowToJTable1(temp);
     }
